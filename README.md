@@ -1,39 +1,32 @@
-# RF Analyzer Marketing Site
+# Easy A/B Testing website
 
-FastAPI-based marketing site for a high-end open-source RF network analyzer, with:
+FastAPI-based marketing site, with:
 
-- A/B testing (hero variants)
+- A/B testing
 - First-party interaction tracking (no external analytics)
-- Pages for product, applications, universities, docs, about
 - Dockerized deployment
 - Tailwind CSS styling
 
-## Development
+# How to use it?
+## Running Docker
 
 ```bash
-python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-
-npm install
-npm run build:css
-
-uvicorn app.main:app --reload
+docker-compose up --build -d
 ```
 
-Open http://localhost:8000
+Open [website](localhost:80) -> localhost:80
 
-## Docker
+## Statistics
+
+Open a terminal in the container
 
 ```bash
-docker build -t rf-site .
-docker run -p 80:8000 rf-site
+docker exec -it web-server bash
 ```
 
-Or with Postgres via docker-compose:
-
+And run the python script
 ```bash
-docker-compose up --build
+python analytics_cli.py summary
 ```
 
-Replace placeholder images and PDFs in `app/static/images` and `app/static/docs`.
+Look inside the script. There are various examples of usage there.
