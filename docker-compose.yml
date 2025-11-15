@@ -2,13 +2,14 @@ version: "3.9"
 
 services:
   web:
-    build: .
+    container_name: web-server
+    build:
+      context: .
     environment:
-      DB_URL: "sqlite:///./rf_site.db"
-      APP_NAME: "RF Analyzer"
-      SECRET_KEY: "change-me"
+      DB_URL: "sqlite:////app/data/rf_site.db"
+      FASTAPI_NAME: "RF Analyzer"
     volumes:
-      - ./analytics_cli.py:/app/analytics_cli.py
+      - db_data:/app/data/
     ports:
       - "80:8000"
 

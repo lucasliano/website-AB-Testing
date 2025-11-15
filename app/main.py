@@ -86,7 +86,7 @@ class SessionVariantMiddleware(BaseHTTPMiddleware):
         return response
 
 
-app = FastAPI(title=settings.APP_NAME)
+app = FastAPI(title=settings.FASTAPI_NAME)
 
 # Static files
 app.mount("/static", StaticFiles(directory="app/static"), name="static")

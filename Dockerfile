@@ -27,4 +27,6 @@ COPY --from=frontend-build /app/app/static/css/main.css ./app/static/css/main.cs
 
 EXPOSE 8000
 
+COPY analytics_cli.py analytics_cli.py
+
 CMD ["gunicorn", "app.main:app", "-k", "uvicorn.workers.UvicornWorker", "--bind", "0.0.0.0:8000"]

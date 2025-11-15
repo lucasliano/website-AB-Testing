@@ -16,6 +16,9 @@ Usage examples:
     # Show conversion (events/pageviews) per variant
     python analytics_cli.py conversion --event click_buy_now --page /
 
+    # Show conversion (events/user) per variant
+    python analytics_cli.py events-detailed --event click_buy_now
+
 You can override the DB path with --db or RF_SITE_DB env var.
 """
 
@@ -33,6 +36,36 @@ def get_connection(db_path: str) -> sqlite3.Connection:
     conn.row_factory = sqlite3.Row
     return conn
 
+def events_detailed_by_variant(conn: sqlite3.Connection, event_name: str):
+    cur = conn.cursor()
+    cur.execute(
+        """
+        SELECT
+            variant_name,
+            COUNT(*) AS total_events,
+            COUNT(DISTINCT session_id) AS unique_sessions
+        FROM events
+        WHERE event_name = ?
+        GROUP BY variant_name
+        ORDER BY variant_name
+        """,
+        (event_name,),
+    )
+    rows = cur.fetchall()
+    if not rows:
+        print(f"No events found for event_name='{event_name}'")
+        return
+
+    print(f"\nDetailed stats for event '{event_name}' by variant:")
+    print("-" * 70)
+    print(f"{'Variant':<10} {'Total':>10} {'Unique':>10} {'Avg per session':>18}")
+    print("-" * 70)
+    for r in rows:
+        total = r["total_events"]
+        unique = r["unique_sessions"]
+        avg = total / unique if unique else 0.0
+        print(f"{r['variant_name']:<10} {total:>10} {unique:>10} {avg:>18.2f}")
+    print()
 
 def events_by_variant(conn: sqlite3.Connection, event_name: str):
     cur = conn.cursor()
@@ -200,8 +233,8 @@ def parse_args() -> Dict[str, Any]:
 
     parser.add_argument(
         "--db",
-        default=os.environ.get("RF_SITE_DB", "rf_site.db"),
-        help="Path to SQLite DB file (default: rf_site.db or RF_SITE_DB env)",
+        default="/app/data/rf_site.db",
+        help="Path to SQLite DB file (default: /app/data/rf_site.db)",
     )
 
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -210,6 +243,9 @@ def parse_args() -> Dict[str, Any]:
 
     ev = subparsers.add_parser("events", help="Show event counts by variant")
     ev.add_argument("--event", required=True, help="Event name, e.g. click_buy_now")
+
+    evd = subparsers.add_parser("events-detailed", help="Show total + unique sessions by variant")
+    evd.add_argument("--event", required=True, help="Event name, e.g. click_buy_now")
 
     pv = subparsers.add_parser("pageviews", help="Show pageview counts by variant")
     pv.add_argument("--page", required=True, help="Page path, e.g. / or /product")
@@ -236,6 +272,8 @@ def main():
             summary(conn)
         elif command == "events":
             events_by_variant(conn, event_name=args["event"])
+        elif command == "events-detailed":
+            events_detailed_by_variant(conn, event_name=args["event"])
         elif command == "pageviews":
             pageviews_by_variant(conn, page=args["page"])
         elif command == "conversion":
