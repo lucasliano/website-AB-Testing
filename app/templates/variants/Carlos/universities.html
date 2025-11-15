@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="bg-yellow-300">
+  <div class="max-w-6xl mx-auto px-4 py-16">
+    <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+      Designed for RF and microwave education
+    </h1>
+    <p class="text-gray-700 max-w-2xl">
+      Integrate a modern, open-source RF network analyzer into your RF and
+      microwave lab courses, with ready-to-use exercises and robust hardware
+      for multi-student environments.
+    </p>
+  </div>
+</section>
+
+<section class="bg-white">
+  <div class="max-w-6xl mx-auto px-4 py-16 grid gap-10 md:grid-cols-2">
+    <div>
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">Example lab experiments</h2>
+      <ul class="space-y-3 text-sm text-gray-800">
+        <li>
+          <span class="font-semibold">Antenna matching lab:</span>
+          measure S11, VSWR, and return loss for different antenna designs.
+        </li>
+        <li>
+          <span class="font-semibold">Filter design lab:</span>
+          compare simulated vs measured S21 and insertion loss of RF filters.
+        </li>
+        <li>
+          <span class="font-semibold">S-parameters &amp; Smith chart lab:</span>
+          introduce S-parameters using practical measurements and Smith charts.
+        </li>
+      </ul>
+      <div class="mt-6">
+        <a
+          href="{{ url_for('static', path='docs/sample-lab.pdf') }}"
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-300 text-sm font-semibold text-gray-800 bg-white hover:bg-gray-50"
+        >
+          Download example lab (PDF)
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="rounded-xl bg-gray-50 shadow-md p-6">
+        <h2 class="text-lg font-semibold text-gray-900 mb-2">Why universities choose this instrument</h2>
+        <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+          <li>Open hardware and firmware that students can study and extend.</li>
+          <li>Repeatable measurements across lab sessions and student groups.</li>
+          <li>Simple PC software and API integration for assignments.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-gray-50" id="quote">
+  <div class="max-w-6xl mx-auto px-4 py-16 grid gap-10 md:grid-cols-2 items-start">
+    <div>
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">Request a university quote</h2>
+      <p class="text-gray-700 mb-4">
+        Tell us about your institution and planned lab usage. We offer volume
+        pricing and support options tailored to teaching labs.
+      </p>
+      <p class="text-xs text-gray-600">
+        We will only use your contact details to respond to this inquiry and
+        will not share them with third parties.
+      </p>
+    </div>
+    <div>
+      <form id="university-quote-form" class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-800 mb-1" for="institution_name">
+            Institution name
+          </label>
+          <input
+            id="institution_name"
+            name="institution_name"
+            required
+            class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-900 focus:border-blue-900"
+          >
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-800 mb-1" for="country">
+            Country
+          </label>
+          <input
+            id="country"
+            name="country"
+            required
+            class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-900 focus:border-blue-900"
+          >
+        </div>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-800 mb-1" for="quantity">
+              Quantity
+            </label>
+            <input
+              id="quantity"
+              name="quantity"
+              type="number"
+              min="1"
+              required
+              class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-900 focus:border-blue-900"
+            >
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-800 mb-1" for="timeframe">
+              Timeframe
+            </label>
+            <input
+              id="timeframe"
+              name="timeframe"
+              class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-900 focus:border-blue-900"
+              placeholder="e.g. next semester"
+            >
+          </div>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-800 mb-1" for="contact_email">
+            Contact email
+          </label>
+          <input
+            id="contact_email"
+            name="contact_email"
+            type="email"
+            required
+            class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-900 focus:border-blue-900"
+          >
+        </div>
+        <button
+          type="submit"
+          class="px-5 py-2.5 rounded-lg bg-blue-900 text-white text-sm font-semibold shadow-sm hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900"
+          data-event-name="submit_university_form"
+          data-variant="{{ current_variant }}"
+          data-button-location="universities_quote"
+        >
+          Submit quote request
+        </button>
+        <p
+          id="university-quote-status"
+          class="text-xs mt-2 text-gray-700"
+          role="status"
+          aria-live="polite"
+        ></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -9,9 +9,9 @@ from .config import settings
 from .db import Base, engine, SessionLocal
 from .models import ABAssignment, PageView
 from .routes import pages, api
+from .variants import get_available_variants
 
-VARIANTS = ["hero_A", "hero_B"]
-
+VARIANTS = get_available_variants()
 
 def init_db():
     """Initialize database tables on startup.
