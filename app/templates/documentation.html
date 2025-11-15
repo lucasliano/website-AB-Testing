@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="bg-brand-bg">
+  <div class="max-w-6xl mx-auto px-4 py-16">
+    <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+      Documentation
+    </h1>
+    <p class="text-gray-700 max-w-2xl">
+      Start with the quick start guide, then explore measurement examples,
+      API integration, and firmware updates. All documentation is designed
+      for RF practitioners and educators.
+    </p>
+  </div>
+</section>
+
+<section class="bg-white">
+  <div class="max-w-6xl mx-auto px-4 py-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3 text-sm">
+    <article class="rounded-xl bg-gray-50 shadow-md p-5">
+      <h2 class="font-semibold text-gray-900 mb-2">Quick start</h2>
+      <p class="text-gray-700 mb-3">
+        Unboxing, connections, calibration, and your first set of measurements.
+      </p>
+      <a href="{{ url_for('static', path='docs/quickstart.pdf') }}" class="text-blue-900 font-semibold">
+        Download quick start (PDF) →
+      </a>
+    </article>
+    <article class="rounded-xl bg-gray-50 shadow-md p-5">
+      <h2 class="font-semibold text-gray-900 mb-2">Installation &amp; setup</h2>
+      <p class="text-gray-700 mb-3">
+        Supported operating systems, drivers, and recommended lab configurations.
+      </p>
+      <a href="{{ url_for('static', path='docs/user-manual.pdf') }}" class="text-blue-900 font-semibold">
+        Open user manual →
+      </a>
+    </article>
+    <article class="rounded-xl bg-gray-50 shadow-md p-5">
+      <h2 class="font-semibold text-gray-900 mb-2">Measurement examples</h2>
+      <p class="text-gray-700 mb-3">
+        Antennas, filters, amplifiers, and front-end examples with annotated
+        screenshots and data exports.
+      </p>
+      <a href="#" class="text-blue-900 font-semibold">
+        View examples →
+      </a>
+    </article>
+    <article class="rounded-xl bg-gray-50 shadow-md p-5">
+      <h2 class="font-semibold text-gray-900 mb-2">API &amp; integration</h2>
+      <p class="text-gray-700 mb-3">
+        Python and REST interfaces, code samples, and tips for integrating
+        with CI and automated test setups.
+      </p>
+      <a href="#" class="text-blue-900 font-semibold">
+        Go to API docs →
+      </a>
+    </article>
+    <article class="rounded-xl bg-gray-50 shadow-md p-5">
+      <h2 class="font-semibold text-gray-900 mb-2">Firmware updates</h2>
+      <p class="text-gray-700 mb-3">
+        Update procedures, release notes, and rollback guidance.
+      </p>
+      <a href="#" class="text-blue-900 font-semibold">
+        Firmware releases →
+      </a>
+    </article>
+  </div>
+</section>
+
+{% endblock %}

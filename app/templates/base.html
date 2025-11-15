@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ title or "RF Analyzer" }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Open-source RF network analyzer for serious engineers and university labs.">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/main.css') }}">
+  </head>
+  <body class="bg-brand-bg text-gray-900">
+    {% include "partials/navbar.html" %}
+    <main class="pt-16">
+      {% block content %}{% endblock %}
+    </main>
+    {% include "partials/footer.html" %}
+    <script src="{{ url_for('static', path='js/tracking.js') }}"></script>
+  </body>
+</html>
