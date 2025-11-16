@@ -1,4 +1,5 @@
-{% extends "base.html" %}
+{% set base_tpl = jinja_load_variant_template("base.html", current_variant) %}
+{% extends base_tpl %}
 
 {% block content %}
 
@@ -133,9 +134,7 @@
         <button
           type="submit"
           class="px-5 py-2.5 rounded-lg bg-blue-900 text-white text-sm font-semibold shadow-sm hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900"
-          data-event-name="submit_university_form"
-          data-variant="{{ current_variant }}"
-          data-button-location="universities_quote"
+          data-event-name="submit_university-form_universities-quote"
         >
           Submit quote request
         </button>

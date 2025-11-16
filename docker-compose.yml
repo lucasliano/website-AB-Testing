@@ -3,9 +3,11 @@ version: "3.9"
 services:
   web:
     container_name: web-server
+    image: vna-website-image
     build:
       context: .
     environment:
+      # DB_URL: "sqlite:////app/rf_site.db"  # DEBUG ONLY
       DB_URL: "sqlite:////app/data/rf_site.db"
       FASTAPI_NAME: "RF Analyzer"
     volumes:

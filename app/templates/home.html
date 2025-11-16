@@ -1,61 +1,9 @@
-{% extends "base.html" %}
+{% set base_tpl = jinja_load_variant_template("base.html", current_variant) %}
+{% extends base_tpl %}
 
 {% block content %}
 
-<!-- Hero -->
-<section class="bg-brand-bg">
-  <div class="max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-10 items-center">
-    <div>
-      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-        Open-Source RF Network Analyzer for Serious Engineers
-      </h1>
-      <p class="text-lg text-gray-700 mb-6">
-        Characterize antennas, filters, amplifiers and RF front-ends from
-        50&nbsp;kHz to 6&nbsp;GHz with lab-grade performance and a fully open
-        measurement stack designed for RF engineers and university labs.
-      </p>
-      <div class="flex flex-wrap gap-3 items-center">
-        <a
-          href="/product"
-          class="px-5 py-2.5 rounded-lg bg-blue-900 text-white font-semibold text-sm shadow-sm hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900"
-          data-event-name="click_buy_now"
-          data-variant="{{ current_variant }}"
-          data-button-location="hero"
-        >
-          Buy now
-        </a>
-        <a
-          href="/universities#quote"
-          class="px-5 py-2.5 rounded-lg border border-blue-900 text-blue-900 font-semibold text-sm bg-white hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900"
-          data-event-name="click_university_quote"
-          data-variant="{{ current_variant }}"
-          data-button-location="hero"
-        >
-          University quote
-        </a>
-        <button
-          type="button"
-          class="text-sm text-blue-900 underline"
-          data-event-name="click_view_specs"
-          data-variant="{{ current_variant }}"
-          data-button-location="hero"
-          onclick="document.getElementById('specs').scrollIntoView({behavior:'smooth'})"
-        >
-          View full specs →
-        </button>
-      </div>
-    </div>
-
-    <div class="relative">
-      <div class="absolute -inset-6 rounded-3xl bg-gradient-to-tr from-blue-900/5 via-brand-secondary/5 to-blue-900/10 pointer-events-none"></div>
-      <div class="relative rounded-2xl bg-white shadow-lg p-4">
-        <div class="aspect-[4/3] rounded-xl bg-gray-100 flex items-center justify-center text-gray-400 text-sm">
-          Product render / photo
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+{% include jinja_load_variant_template("hero.html", current_variant) %}
 
 <!-- Trusted by -->
 <section class="border-t border-gray-200 bg-white">
@@ -130,9 +78,7 @@
       <a
         href="/product"
         class="inline-flex items-center gap-2 text-sm font-semibold text-blue-900"
-        data-event-name="click_learn_more"
-        data-variant="{{ current_variant }}"
-        data-button-location="product_overview"
+        data-event-name="click_learn-more_product-overview"
       >
         Learn more
         <span aria-hidden="true">→</span>
@@ -322,9 +268,7 @@
         <a
           href="/universities#quote"
           class="px-5 py-2.5 rounded-lg bg-blue-900 text-white font-semibold text-sm shadow-sm"
-          data-event-name="click_university_quote"
-          data-variant="{{ current_variant }}"
-          data-button-location="universities_block"
+          data-event-name="click_university-quote_universities-block"
         >
           University quote
         </a>

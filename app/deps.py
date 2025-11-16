@@ -10,7 +10,7 @@ def common_context(request: Request, title: str | None = None):
     return {
         "request": request,
         "current_variant": getattr(request.state, "variant", None),
-        "title": title or "RF Analyzer",
+        "title": title,
     }
 
 
@@ -48,3 +48,27 @@ def render_variant_template(
         return templates.TemplateResponse(template_name, ctx)
     except TemplateNotFound:
         raise HTTPException(status_code=500, detail=f"Template not found: {template_name}")
+
+
+def jinja_load_variant_template(template_html: str, variant: str | None = None) -> str:
+    """
+    This function will be used in the HTML files to include variants with jinja.
+    How to use it: {% include jinja_load_variant_template("hero.html", current_variant) %}
+
+    Returns the best template path for an include:
+    - If variant is set and variants/<variant>/<template_html> exists, return that
+    - Otherwise return template_html
+    """
+    if variant:
+        candidate = f"variants/{variant}/{template_html}"
+        try:
+            templates.env.get_template(candidate)
+            return candidate
+        except TemplateNotFound:
+            # fall back to default
+            pass
+    return template_html
+
+
+# register helper as a global in Jinja
+templates.env.globals["jinja_load_variant_template"] = jinja_load_variant_template
