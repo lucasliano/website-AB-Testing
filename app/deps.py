@@ -53,7 +53,7 @@ def render_variant_template(
 def jinja_load_variant_template(template_html: str, variant: str | None = None) -> str:
     """
     This function will be used in the HTML files to include variants with jinja.
-    How to use it: {% include jinja_load_variant_template("hero.html", current_variant) %}
+    How to use it: {% include jinja_load_variant_template("partials/hero.html", current_variant) %}
 
     Returns the best template path for an include:
     - If variant is set and variants/<variant>/<template_html> exists, return that
