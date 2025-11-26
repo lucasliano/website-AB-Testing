@@ -1,52 +1,274 @@
 [
     {
         "id": 1,
-        "title": "Laboratorio abierto de innovaci\u00f3n estudiantil",
-        "short_description": "Espacio colaborativo para prototipar soluciones a problemas de la comunidad universitaria.",
-        "full_description": "\n<p>Este laboratorio busca conectar estudiantes de distintas carreras para trabajar sobre problemas concretos de la UNLP y su entorno.</p>\n<p>La idea es ofrecer un espacio con herramientas, mentor\u00edas y una red de aliados para que las ideas puedan convertirse en proyectos reales.</p>\n",
-        "responsable": "Equipo de Innovaci\u00f3n UNLP",
-        "contact_email": "innovacion@unlp.edu.ar",
-        "categories": ["Tecnolog\u00eda e innovaci\u00f3n",
-        "Vinculaci\u00f3n con la comunidad"],
-        "status": "proyecto",
-        "status_label": "Proyecto en curso",
-        "status_type": "proyecto",
-        "looking_for": "Aliados institucionales y difusi\u00f3n",
-        "resources": [
-            {
-                "label": "Presentaci\u00f3n general",
-                "url": "https://ejemplo.unlp.edu.ar/innovacion.pdf"
-            }
-        ]
+        "title": "Inteligencia Artificial Aplicada a la Evaluación Ecotoxicológica: Automatización de Ensayo Allium Cepa",
+        "short_description": "Desarrollar modelos de IA para generación y clasificación de imágenes microscópicas (células vegetales)",
+        "full_description": "Se busca que el tesista investigue la viabilidad e implemente un algoritmo de clasificación de las distintas etapas de mitosis celular así como también la detección de aberraciones cromáticas en dicho proceso. Se trabajará sobre imágenes microscópicas provenientes de preparados de Allium Cepa (cebolla común) contaminados con agentes ecotoxicológicos.\n \nSe trabajará con un conjunto de imágenes con anotaciones parciales (provenientes del Instituto Nacional del Agua y conjuntos de datos públicos) y además con métodos de generación de datos artificiales (imágenes generadas con IA) desarrollados dentro del grupo. Sobre estos últimos se espera que el tesista también pueda aportar a mejorar la calidad de los mismos.\n \nEl objetivo último del proyecto es el desarrollo de un método automatizado que permita acelerar la implementación del protocolo Allium Cepa, reduciendo los tiempos de conteo manual de las células (y detección sus estados de mitosis) en cada preparado. Este protocolo es utilizado para determinar la toxicidad de efluentes en las cuencas hídricas del país, acelerar el proceso de conteo y reducir la subjetividad del mismo permitirá sentar bases para la generación de legislación sobre efluentes ecotoxicológicos.\n",
+        "objetivos_especificos": "Implementar modelos de aprendizaje profundo (U-Nets, Res-Nets y/o Vision Transformers) para clasificación de imágenes, adicionalmente, implementar modelos de generación de imágenes (VAEs, Difussers) para la generación de imágenes. Generar una publicación en una revista o congreso nacional, con la evaluación de la técnica propuesta.",
+        "requisitos": [
+            "Conocimientos de programación (Python).",
+            "Manejo de Linux.",
+            "Conocimientos básicos de análisis computacional de imágenes (representaciones y filtros).",
+            "(deseable) Conocimientos de aprendizaje automático (básico).",
+            "(deseable) Conocimientos de aprendizaje automático (básico)."
+        ],
+        "responsable": [
+            "Dr. Ing. Rodriguez Colmeiro, Ramiro"
+        ],
+        "contact_email": [
+            "rrodriguezcolmeiro@frba.utn.edu.ar"
+        ],
+        "categories": [
+            "Computer Vision",
+            "Inteligencia Artificial"
+        ],
+        "status": "idea",
+        "status_label": "Idea en desarrollo",
+        "status_type": "idea",
+        "looking_for": "1"
     },
+
     {
         "id": 2,
-        "title": "Programa de tutor\u00edas entre pares",
-        "short_description": "Acompa\u00f1amiento acad\u00e9mico y emocional para ingresantes a trav\u00e9s de tutor\u00edas entre estudiantes.",
-        "full_description": "\nEl programa propone capacitar a tutores pares para acompa\u00f1ar a ingresantes durante su primer a\u00f1o de cursada.\nBuscamos fortalecer la permanencia y el sentido de pertenencia a la vida universitaria.\nEl programa propone capacitar a tutores pares para acompa\u00f1ar a ingresantes durante su primer a\u00f1o de cursada.\nBuscamos fortalecer la permanencia y el sentido de pertenencia a la vida universitaria.\nEl programa propone capacitar a tutores pares para acompa\u00f1ar a ingresantes durante su primer a\u00f1o de cursada.\nBuscamos fortalecer la permanencia y el sentido de pertenencia a la vida universitaria.\nEl programa propone capacitar a tutores pares para acompa\u00f1ar a ingresantes durante su primer a\u00f1o de cursada.\nBuscamos fortalecer la permanencia y el sentido de pertenencia a la vida universitaria.\nEl programa propone capacitar a tutores pares para acompa\u00f1ar a ingresantes durante su primer a\u00f1o de cursada.\nBuscamos fortalecer la permanencia y el sentido de pertenencia a la vida universitaria.\nEl programa propone capacitar a tutores pares para acompa\u00f1ar a ingresantes durante su primer a\u00f1o de cursada.\nBuscamos fortalecer la permanencia y el sentido de pertenencia a la vida universitaria.\nEl programa propone capacitar a tutores pares para acompa\u00f1ar a ingresantes durante su primer a\u00f1o de cursada.\nBuscamos fortalecer la permanencia y el sentido de pertenencia a la vida universitaria.\n",
-        "responsable": "Centro de Estudiantes",
-        "contact_email": "tutorias@unlp.edu.ar",
-        "categories": ["Vinculaci\u00f3n con la comunidad",
-        "Extensi\u00f3n universitaria"],
+        "title": "Evaluación de modelos de lenguaje sobre idioma Español",
+        "short_description": "Desarrollar evaluaciones de alta dificultad para modelos de lenguaje (LLMs) en tareas de inferencia en lenguaje natural",
+        "full_description": "Las evaluaciones consisten en tareas de clasificación de argumentos según la relación entre premisas y conclusión, y se denominan “adversariales” porque la conclusión se genera a través de la interacción de un humano (adversario) y un LLM (clasificador), donde el adversario debe generar conclusiones adecuadas a ciertas premisas y una clase previas, pero que faciliten el error del LLM.\nSe busca que el tesista asista en la implementación de un sistema automatizado de evaluación y adquisición de datos para la construcción interactiva de las evaluaciones. El mismo deberá implementar interfaces entre el usuario y el asistente (frontend y/o backend) para asegurar la correcta adquisición y detección de un ejemplo adversarial correcto. Adicionalmente trabajará sobre el análisis exploratorio de los datos, buscando características importantes sobre los comportamientos de los asistentes en los distintos escenarios planteados.\nEl objetivo último del proyecto es determinar la fortaleza (o debilidad) de los modelos de lenguaje cuando son puestos a analizar razonamientos difíciles en el idioma español, un área poco explorada por los conjuntos de prueba estándar y de gran importancia para la implementación de asistentes en cadenas de automatización con usuarios de habla hispana.\n",
+        "objetivos_especificos": "Implementar cadenas de automatización entre usuarios y asistentes (programación de backends), conectando peticiones de usuarios (JSON-RPC calls) con instancias de asistentes (externas y/o locales) y trabajando con bases de datos para recolección. Finalmente analizar los datos obtenidos para la extracción de resultados y escritura de una publicación en una revista o congreso nacional.",
+        "requisitos": [
+            "Conocimientos de programación (Python).",
+            "Manejo de Linux.",
+            "(deseable) Manejo de Docker",
+            "(deseable) Conocimientos de bases de datos (MongoDB, PostgreSQL).",
+            "(deseable) Conocimientos de PyTorch/vLLM."
+        ],
+        "responsable": [
+            "Dr. Ing. Rodriguez Colmeiro, Ramiro",
+            "Prof. Toranzo Calderón, Joaquín"
+        ],
+        "contact_email": [
+            "rrodriguezcolmeiro@frba.utn.edu.ar",
+            "jtoranzocalderon@frba.utn.edu.ar"
+        ],
+        "categories": [
+            "Natural Language",
+            "Inteligencia Artificial"
+        ],
         "status": "idea",
         "status_label": "Idea en desarrollo",
         "status_type": "idea",
-        "looking_for": "Voluntariado y difusi\u00f3n",
-        "resources": []
+        "looking_for": "1"
     },
+
     {
         "id": 3,
-        "title": "LACONCHA DE TU MADRE MARTIN",
-        "short_description": "Acompa\u00f1amiento acad\u00e9mico y emocional para ingresantes a trav\u00e9s de tutor\u00edas entre estudiantes.",
-        "full_description": "\nEl programa propone capacitar a tutores pares para acompa\u00f1ar a ingresantes durante su primer a\u00f1o de cursada.\nBuscamos fortalecer la permanencia y el sentido de pertenencia a la vida universitaria.\nEl programa propone capacitar a tutores pares para acompa\u00f1ar a ingresantes durante su primer a\u00f1o de cursada.\nBuscamos fortalecer la permanencia y el sentido de pertenencia a la vida universitaria.\nEl programa propone capacitar a tutores pares para acompa\u00f1ar a ingresantes durante su primer a\u00f1o de cursada.\nBuscamos fortalecer la permanencia y el sentido de pertenencia a la vida universitaria.\nEl programa propone capacitar a tutores pares para acompa\u00f1ar a ingresantes durante su primer a\u00f1o de cursada.\nBuscamos fortalecer la permanencia y el sentido de pertenencia a la vida universitaria.\nEl programa propone capacitar a tutores pares para acompa\u00f1ar a ingresantes durante su primer a\u00f1o de cursada.\nBuscamos fortalecer la permanencia y el sentido de pertenencia a la vida universitaria.\nEl programa propone capacitar a tutores pares para acompa\u00f1ar a ingresantes durante su primer a\u00f1o de cursada.\nBuscamos fortalecer la permanencia y el sentido de pertenencia a la vida universitaria.\nEl programa propone capacitar a tutores pares para acompa\u00f1ar a ingresantes durante su primer a\u00f1o de cursada.\nBuscamos fortalecer la permanencia y el sentido de pertenencia a la vida universitaria.\n",
-        "responsable": "Centro de Estudiantes",
-        "contact_email": "tutorias@unlp.edu.ar",
-        "categories": ["Vinculaci\u00f3n con la comunidad",
-        "Extensi\u00f3n universitaria"],
+        "title": "Desarrollo del subsistema de potencia (EPS) para CubeSat",
+        "short_description": "Diseñar e implementar el subsistema de potencia (EPS) de un nanosatélite tipo CubeSat, abarcando generación fotovoltaica, almacenamiento, distribución y regulación de energía eléctrica para garantizar un suministro estable y confiable en entorno espacial.",
+        "full_description": "El subsistema de potencia (EPS, Electrical Power Subsystem) representa uno de los componentes más críticos dentro de la infraestructura de un satélite. Es el responsable de generar, almacenar, distribuir y regular la energía eléctrica necesaria para el funcionamiento de todos los módulos a bordo. Su misión es asegurar un suministro energético estable y seguro frente a las variaciones del entorno espacial, permitiendo la operación ininterrumpida de la plataforma.\n\nEl tesista formará parte del equipo del proyecto con el propósito de concebir y desarrollar el hardware del EPS. El diseño buscará alcanzar una arquitectura de alta eficiencia y resiliencia frente a fallos, ajustada a las restricciones de volumen, masa y control térmico impuestas por los CubeSats. A su vez, se priorizará una gestión inteligente de la energía, adaptada a los diferentes escenarios operativos definidos por la misión.\n\nComo etapa final, el trabajo prevé la validación experimental del prototipo mediante pruebas ambientales que incluyan, entre otras, ensayos de termociclado en vacío y exposición a radiación ionizante. Estas evaluaciones permitirán verificar el comportamiento del sistema bajo condiciones similares a las del entorno orbital. Los resultados obtenidos serán analizados y documentados, contribuyendo al avance del conocimiento técnico y científico en el área de la electrónica aplicada a sistemas espaciales.\n",
+        "objetivos_especificos": "Diseñar una arquitectura de EPS, contemplando generación fotovoltaica, gestión de batería y regulación de buses de alimentación. Implementar la arquitectura en un circuito impreso compatible con el factor de forma PC-104. Medir y analizar la eficiencia de la fuente y el nivel de estabilidad. Desarrollar el firmware necesario para llevar un registro digital del consumo. Se deberá realizar un ensayo de termociclado en vacío o de dosis total en el hardware desarrollado. Los resultados procesados se deberán publicar en una revista o congreso (idealmente IEEE).",
+        "requisitos": [
+            "Conocimiento en diseño de circuitos impresos multicapa (preferentemente en Altium) y capacidades de fabricación y ensamblaje.",
+            "(deseable) Conocimientos de fuentes de tensión (switching), paneles solares (control PWM o MPPT) y baterías.",
+            "(deseable) Conocimientos de C y Python.",
+            "(deseable) Conocimiento de efectos térmicos en semiconductores."
+        ],
+        "responsable": [
+            "Liaño, Lucas"
+        ],
+        "contact_email": [
+            "lliano@frba.utn.edu.ar"
+        ],
+        "categories": [
+            "Sistemas Espaciales",
+            "Electrónica de Potencia"
+        ],
         "status": "idea",
         "status_label": "Idea en desarrollo",
         "status_type": "idea",
-        "looking_for": "Voluntariado y difusi\u00f3n",
-        "resources": []
+        "looking_for": "1"
+    },
+
+    {
+        "id": 4,
+        "title": "Diseño mecánico de robot tetrápodo robusto con motores brushless",
+        "short_description": "Concebir y desarrollar el diseño mecánico de un robot tetrápodo robusto, con mecanismos reductores y estructura capaces de soportar golpes, caídas y terrenos complejos, facilitando la transferencia de caminatas aprendidas por refuerzo profundo desde simulación al entorno real.",
+        "full_description": "Para permitir que se pueda transferir el progreso logrado por el algoritmo de aprendizaje por refuerzo profundo (Multi-Objective Soft Actor-Critic) del simulador al entorno real, se requiere de un robot mecánicamente robusto, capaz de mover sus articulaciones con el torque suficiente tal que su comportamiento sea fácilmente imitable por los actuadores dentro del simulador.\n\nPor otro lado, anticipando posteriores entrenamientos con el robot real luego del entorno simulado, es necesario que pueda soportar golpes, caídas y movimientos bruscos.\n\nEl tesista formará parte del equipo del proyecto con el propósito de concebir y desarrollar la mecánica necesaria para el nuevo diseño del robot tetrápodo.\n\nComo etapa final, el trabajo prevé la validación experimental del diseño mediante ensayos de estrés mecánico y mediciones de movimientos de las articulaciones para luego contrastarse con el entorno de simulación.\n",
+        "objetivos_especificos": "Diseñar los mecanismos reductores que amplifiquen el torque de los motores brushless y la estructura completa del robot, que debe contener dentro la batería y el hardware de control (diseñadas por otro equipo de trabajo). Esta estructura debe permitir que el robot pueda moverse de manera fluida y sobreponerse a las dificultades de terrenos con distintos tipos de rozamiento. Los resultados procesados de los ensayos se podrían llegar a publicar en una revista o congreso (por ejemplo IEEE).",
+        "requisitos": [
+            "Conocimiento en diseño 3D de piezas mecánicas (por ejemplo SolidWorks).",
+            "(deseable) Conocimiento en impresión 3D.",
+            "(deseable) Conocimiento en motores sin escobillas (DC Brushless)."
+        ],
+        "responsable": [
+            "Pablo Daniel Folino",
+            "Sergio Alberino",
+            "Juan Gabis Gomez",
+            "Javier Esarte"
+        ],
+        "contact_email": [
+            "pfolino@frba.utn.edu.ar",
+            "salberino@frba.utn.edu.ar",
+            "juangabis@frba.utn.edu.ar",
+            "esart@frba.utn.edu.ar"
+        ],
+        "categories": [
+            "Robótica",
+            "Mecánica",
+            "Aprendizaje por Refuerzo"
+        ],
+        "status": "idea",
+        "status_label": "Idea en desarrollo",
+        "status_type": "idea",
+        "looking_for": "1"
+    },
+
+    {
+        "id": 5,
+        "title": "Alimentación, hardware y firmware de control para robot tetrápodo",
+        "short_description": "Diseñar el hardware de potencia y control, así como el firmware asociado, para accionar 12 motores brushless de un robot tetrápodo, a partir de una batería Li-Po y con validación experimental en entornos simulados y reales.",
+        "full_description": "Para permitir que se pueda transferir el progreso logrado por el algoritmo de aprendizaje por refuerzo profundo (Multi-Objective Soft Actor-Critic) del simulador al entorno real, se requiere de un robot mecánicamente robusto, capaz de mover sus articulaciones con el torque suficiente tal que su comportamiento sea fácilmente imitable por los actuadores dentro del simulador.\n\nEl tesista formará parte del equipo del proyecto con el propósito de concebir y desarrollar el hardware y firmware de control para 12 motores brushless, así también como la electrónica de potencia para alimentar dicho sistema, a partir de la batería Li-Po que alimenta directamente los actuadores.\n\nComo etapa final, el trabajo prevé la validación experimental del diseño mediante ensayos de estrés mecánico (control de actuadores con carga) y mediciones de movimientos de las articulaciones para luego contrastarse con el entorno de simulación.\n",
+        "objetivos_especificos": "Diseñar el hardware y firmware para el control vectorial de los motores brushless y una fuente DC-DC que reduzca la tensión de la batería (topología buck) para alimentar la electrónica de control (microcontrolador, etc.). Los resultados procesados de los ensayos se podrían llegar a publicar en una revista o congreso (por ejemplo IEEE).",
+        "requisitos": [
+            "Conocimiento en diseño de circuitos impresos multicapa (preferentemente en Altium).",
+            "Conocimiento en desarrollo de firmware de microcontroladores (lenguaje C). Máquinas de estado, conocimiento básico de filtro digital y control PID.",
+            "(deseable) Soldadura y ensamblaje de PCBs.",
+            "(deseable) Programación básica en Python."
+        ],
+        "responsable": [
+            "Pablo Daniel Folino",
+            "Sergio Alberino",
+            "Juan Gabis Gomez",
+            "Javier Esarte"
+        ],
+        "contact_email": [
+            "pfolino@frba.utn.edu.ar",
+            "salberino@frba.utn.edu.ar",
+            "juangabis@frba.utn.edu.ar",
+            "esart@frba.utn.edu.ar"
+        ],
+        "categories": [
+            "Robótica",
+            "Electrónica",
+            "Control"
+        ],
+        "status": "idea",
+        "status_label": "Idea en desarrollo",
+        "status_type": "idea",
+        "looking_for": "1"
+    },
+
+    {
+        "id": 6,
+        "title": "Procesamiento de Imágenes Médicas mediante Aprendizaje Profundo",
+        "short_description": "Investigar y desarrollar métodos de procesamiento de imágenes médicas (SPECT, PET, CT y MRI) mediante técnicas de aprendizaje profundo para reconstrucción 3D, segmentación semántica y mejora de calidad de datos.",
+        "full_description": "El proyecto propone investigar y desarrollar métodos de procesamiento de imágenes médicas, tanto de imágenes de tomografía computarizada por emisión de fotón único (SPECT) como para imágenes de tomografía por emisión de positrones (PET).\n\nLínea de Trabajo:\n1) Módulo de reconstrucción 3D a partir de vistas y cortes de imágenes tomográficas.\n2) Módulo de segmentación semántica utilizando foundation models en imágenes médicas.\n\nObjetivo General de la Línea de Trabajo:\n1) Aplicación de técnicas de reconstrucción 3D a partir de vistas como pueden ser los cortes en diferentes modalidades de imágenes médicas (SPECT, PET, CT y MRI). Investigación, selección, evaluación e integración de algoritmos. Durante el desarrollo del proyecto se aplicarán técnicas de procesado de imágenes digitales y algoritmos de visión artificial basados en redes neuronales profundas, investigando y desarrollando diferentes metodologías de corrección. A su vez, se investigarán técnicas de mejora de calidad y precisión de los datos utilizados.\n\n2) Desarrollo de modelos de segmentación semántica y aprendizaje profundo para asociar regiones contextuales, permitiendo reconstrucciones temáticas y localización de entidades en imágenes médicas (SPECT, PET, CT y MRI). Se emplearán algoritmos de aprendizaje automático, los cuales permitirán optimizar la segmentación, la detección de correspondencias y mejorar la reconstrucción de superficies complejas, favoreciendo aplicaciones en el área del diagnóstico médico.\n",
+        "objetivos_especificos": "Programación de algoritmos, etiquetado y confección del set de datos, entrenamiento y evaluación de modelos con arquitecturas de aprendizaje automático. Publicar un trabajo en un congreso nacional.",
+        "requisitos": [
+            "Obligatorio: Python.",
+            "Deseable: Aprendizaje Automático.",
+            "Deseable: Visión por computadora.",
+            "Deseable: Entrenamiento de modelos con Keras, TensorFlow o PyTorch."
+        ],
+        "responsable": [
+            "Mariana Andrea Prieto Canalejo"
+        ],
+        "contact_email": [
+            "mprietocanalejo@frba.utn.edu.ar"
+        ],
+        "categories": [
+            "Computer Vision",
+            "Inteligencia Artificial",
+            "Sanidad"
+        ],
+        "status": "idea",
+        "status_label": "Idea en desarrollo",
+        "status_type": "idea",
+        "looking_for": "1"
+    },
+
+    {
+        "id": 7,
+        "title": "Desarrollo del subsistema de telemetría y comando (TT&C) para CubeSat",
+        "short_description": "Diseñar e implementar el hardware de telemetría y comando (TT&C) en banda UHF para un nanosatélite tipo CubeSat, incluyendo transceiver full-duplex, antena desplegable y validación en condiciones controladas.",
+        "full_description": "El módulo de telemetría y comandos (TT&C, Telemetry, Tracking and Command) constituye el principal enlace entre el satélite y la estación terrestre, siendo responsable de la transmisión y recepción de datos esenciales para el control y monitoreo de la misión. A través de este subsistema se gestionan tanto el envío de órdenes hacia la plataforma como la recepción de información sobre su estado operativo, permitiendo supervisar parámetros críticos, detectar anomalías y garantizar la correcta ejecución de las tareas programadas. Este es un canal de comunicaciones de bajo ancho de banda y alta confiabilidad en la banda UHF.\n\nEl tesista se integrará al grupo de desarrollo con el objetivo de diseñar y poner en marcha el hardware correspondiente al TT&C. El trabajo se enfocará en lograr un canal bidireccional de datos confiable, eficiente en el uso del espectro y compatible con los estándares de comunicación propios de los CubeSats. Además, se buscará diseñar una antena desplegable simple que opere en la misma banda (UHF).\n\nLa etapa de validación contemplará ensayos de comunicación en condiciones controladas, ensayos de termociclado en vacío o ensayos de dosis acumulada. Los resultados permitirán evaluar la calidad, estabilidad y alcance de las comunicaciones, aportando a la consolidación de tecnologías nacionales en el campo de los sistemas de telecomando y telemetría espacial.\n",
+        "objetivos_especificos": "Análisis del radioenlace (link budget). Diseñar un transceiver full-duplex en banda UHF. Implementar la arquitectura en un circuito impreso compatible con el factor de forma PC-104. Diseñar e implementar una antena en UHF. Medir y analizar el módulo desarrollado (potencia máxima, productos de intermodulación, ancho de banda, etc.). Desarrollar el firmware necesario para realizar una comunicación simple. Se deberá realizar un ensayo en una cámara anecoica para evaluar el funcionamiento de la antena. Los resultados procesados se deberán publicar en una revista o congreso (idealmente IEEE).",
+        "requisitos": [
+            "Conocimiento en diseño de circuitos impresos multicapa (preferentemente en Altium) y capacidades de fabricación y ensamblaje.",
+            "Conocimientos de diseño de circuitos de RF.",
+            "(deseable) Uso de software de simulación electromagnética por elementos finitos (preferentemente ANSYS HFSS)."
+        ],
+        "responsable": [
+            "Liaño, Lucas"
+        ],
+        "contact_email": [
+            "lliano@frba.utn.edu.ar"
+        ],
+        "categories": [
+            "Sistemas Espaciales",
+            "RF",
+            "Telecomunicaciones"
+        ],
+        "status": "idea",
+        "status_label": "Idea en desarrollo",
+        "status_type": "idea",
+        "looking_for": "1"
+    },
+
+    {
+        "id": 8,
+        "title": "Algoritmo de apuntamiento para antenas phased array en nanosatélites",
+        "short_description": "Desarrollar un algoritmo de beamforming y apuntamiento para antenas phased array en nanosatélites, capaz de mantener enlaces de alta ganancia con objetivos móviles mediante control digital de fase y amplitud.",
+        "full_description": "El desarrollo de un algoritmo de beamforming para apuntamiento de antenas phased array constituye un componente esencial en la mejora de las capacidades de comunicación de nanosatélites. Este proyecto se enmarca como la continuación de una tesis de grado iniciada durante el 2025 donde se desarrolló la antena junto al mecanismo de phase shifting.\n\nEl algoritmo a desarrollar tiene como objetivo optimizar la dirección y forma del haz de radiación mediante el control digital de la fase y amplitud de los elementos radiantes, permitiendo establecer enlaces de alta ganancia y estabilidad sin necesidad de mecanismos mecánicos de orientación. La propuesta busca lograr un sistema adaptable, eficiente y de bajo consumo, capaz de responder dinámicamente a variaciones en la posición orbital o en las condiciones del enlace, garantizando así una comunicación confiable con el segmento terrestre.\n\nEl tesista se integrará al grupo de desarrollo con el objetivo de desarrollar el software mencionado. Se buscará desarrollar un algoritmo que permita mantener la comunicación con un objetivo móvil, emulando el comportamiento de un satélite en órbita.\n\nLa etapa de validación contempla ensayos de comunicación en condiciones controladas (cámara anecoica o aeronave). Los resultados permitirán evaluar la viabilidad de la implementación del sistema en un satélite tipo CubeSat, aportando a la consolidación de tecnologías nacionales en el campo.\n",
+        "objetivos_especificos": "Implementación de algoritmo de control de un sistema de apuntamiento para antenas phased array. Medir y analizar el software desarrollado (velocidad de respuesta, capacidad de seguimiento, ganancia media, etc.). Se deberá realizar un ensayo en una cámara anecoica (o con una aeronave) para evaluar el funcionamiento de la antena. Los resultados procesados se deberán publicar en una revista o congreso (idealmente IEEE).",
+        "requisitos": [
+            "Conocimientos de diseño de circuitos de RF.",
+            "Conocimientos en programación de alto y bajo nivel (Python, C).",
+            "Conocimientos en procesamiento digital de señales y diseño en lógica programable.",
+            "(deseable) Conocimientos básicos de antenas.",
+            "(deseable) Uso de software de simulación electromagnética por elementos finitos (preferentemente ANSYS HFSS)."
+        ],
+        "responsable": [
+            "Liaño, Lucas"
+        ],
+        "contact_email": [
+            "lliano@frba.utn.edu.ar"
+        ],
+        "categories": [
+            "Sistemas Espaciales",
+            "Procesamiento de Señales",
+            "Telecomunicaciones"
+        ],
+        "status": "idea",
+        "status_label": "Idea en desarrollo",
+        "status_type": "idea",
+        "looking_for": "1"
+    },
+
+    {
+        "id": 9,
+        "title": "Desarrollo de la computadora de a bordo (OBC) para nanosatélites",
+        "short_description": "Diseñar e implementar una computadora de a bordo (OBC) de alta confiabilidad para nanosatélites, incluyendo hardware, firmware y validación ambiental bajo condiciones representativas del entorno espacial.",
+        "full_description": "La computadora de a bordo (OBC, On-Board Computer) constituye el núcleo del sistema satelital, al coordinar la adquisición, procesamiento y transmisión de datos, así como la ejecución de comandos provenientes del segmento terrestre. Los periféricos de la computadora incluyen: GPS, IMU, CAN-BUS y unidades de memoria, entre otros.\n\nEl tesista se incorporará al grupo de trabajo del proyecto con la finalidad de diseñar e implementar una arquitectura que minimice la probabilidad de fallas catastróficas. A su vez, se deberá desarrollar el firmware suficiente para realizar una evaluación del sistema en su conjunto.\n\nFinalmente, el proyecto contempla la validación experimental del hardware desarrollado mediante ensayos ambientales, tales como pruebas de termociclado en vacío o de dosis total de radiación, a fin de evaluar su desempeño bajo condiciones representativas del entorno espacial. Los resultados obtenidos serán analizados y documentados, con el objetivo de contribuir al conocimiento científico y tecnológico en el campo de la electrónica espacial.\n",
+        "objetivos_especificos": "Diseñar una arquitectura de computadora de alta confiabilidad. Implementar la arquitectura en un circuito impreso compatible con el factor de forma PC-104. Desarrollar drivers para la puesta en marcha del hardware propuesto. Se deberá realizar un ensayo de termociclado en vacío o de dosis total en el hardware desarrollado. Los resultados procesados se deberán publicar en una revista o congreso (idealmente IEEE).",
+        "requisitos": [
+            "Conocimiento en diseño de circuitos impresos multicapa (preferentemente en Altium) y capacidades de fabricación y ensamblaje.",
+            "Conocimiento en desarrollo de firmware sobre sistemas operativos de tiempo real (preferentemente RTEMS).",
+            "(deseable) Conocimiento de microarquitectura de procesadores.",
+            "(deseable) Conocimientos de Python."
+        ],
+        "responsable": [
+            "Liaño, Lucas"
+        ],
+        "contact_email": [
+            "lliano@frba.utn.edu.ar"
+        ],
+        "categories": [
+            "Sistemas Espaciales",
+            "Electrónica",
+            "Firmware"
+        ],
+        "status": "idea",
+        "status_label": "Idea en desarrollo",
+        "status_type": "idea",
+        "looking_for": "1"
     }
 ]

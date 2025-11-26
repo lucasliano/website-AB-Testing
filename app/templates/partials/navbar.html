@@ -1,69 +1,78 @@
 {# templates/partials/navbar.html #}
-<header class="bg-slate-950/95 border-b border-slate-800/80 backdrop-blur-sm">
-  <div class="max-w-6xl mx-auto px-6 lg:px-8 flex items-center justify-between h-16">
-    <div class="flex items-center gap-2">
-      <span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-tr from-sky-500 to-blue-600 text-sm font-bold text-slate-950 shadow-lg">
-        IN
-      </span>
-      <span class="text-sm font-semibold tracking-tight text-slate-100">
-        Iniciativas UNLP
-      </span>
+<header class="sticky top-0 z-50 bg-slate-950/50 border-b border-slate-800/50 backdrop-blur-md shadow-sm transition-all duration-300">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+    <!-- Barra principal -->
+    <div class="flex items-center justify-between gap-3">
+      <!-- Brand -->
+      <a
+        href="{{ url_for('home') }}"
+        class="flex items-center gap-2"
+        aria-label="Ir al inicio"
+      >
+        <img
+          src="{{ url_for('static', path='images/giar.png') }}"
+          alt="GIAR"
+          class="h-8 w-auto hidden sm:block"
+        >
+
+        <!-- Marca mínima para mobile -->
+        <span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500 to-blue-600 text-xs font-bold text-slate-950 sm:hidden">
+          IN
+        </span>
+      </a>
+
+      <!-- Botón hamburguesa -->
+      <button
+        type="button"
+        class="inline-flex md:hidden items-center justify-center rounded-lg border border-slate-700/80 bg-slate-900/80 px-3 py-2 text-slate-100 hover:bg-slate-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 transition"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        data-toggle="mobile-nav"
+      >
+        <span class="sr-only">Abrir menú</span>
+        <span class="flex flex-col gap-1">
+          <span class="block h-[2px] w-5 rounded-full bg-slate-100"></span>
+          <span class="block h-[2px] w-5 rounded-full bg-slate-100"></span>
+          <span class="block h-[2px] w-5 rounded-full bg-slate-100"></span>
+        </span>
+      </button>
+
+      <!-- Navegación desktop -->
+      <nav
+        class="hidden md:flex items-center gap-6 text-sm text-slate-300"
+        role="navigation"
+      >
+        <a href="{{ url_for('home') }}" class="font-medium hover:text-white transition-colors duration-200">
+          Iniciativas
+        </a>
+        <a href="#quienes-somos" class="font-medium hover:text-white transition-colors duration-200">
+          Quiénes Somos
+        </a>
+        <a href="#contacto" class="font-medium hover:text-white transition-colors duration-200">
+          Contacto
+        </a>
+        {# Botón "Postulá tu iniciativa" eliminado #}
+      </nav>
     </div>
-    <nav class="hidden md:flex items-center gap-6 text-sm text-slate-300">
-      <a href="{{ url_for('home') }}" class="relative font-medium hover:text-white">
-        Inicio
-      </a>
-      <a href="#quienes-somos" class="font-medium hover:text-white">
-        Quiénes Somos
-      </a>
-      <a href="#como-funciona" class="font-medium hover:text-white">
-        Cómo funciona
-      </a>
-      <button
-        type="button"
-        class="ml-4 rounded-full bg-blue-500 hover:bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-lg hover:shadow-[0_20px_60px_rgba(0,0,0,0.7)] hover:scale-[1.01] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 transition"
-        data-modal-open="submit-initiative"
-        data-event-name="click_open-submit-modal_navbar"
-      >
-        Postulá tu iniciativa
-      </button>
-    </nav>
-    <button
-      type="button"
-      class="md:hidden inline-flex items-center justify-center rounded-full border border-slate-700 px-2.5 py-1.5 text-xs text-slate-200 hover:bg-slate-800"
-      data-event-name="click_toggle-mobile-nav_navbar"
-      data-toggle="mobile-nav"
+
+    <!-- Menú mobile -->
+    <nav
+      id="mobile-menu"
+      class="mt-3 hidden flex-col gap-2 border-t border-slate-800/80 pt-3 text-sm text-slate-100 md:hidden"
+      role="navigation"
+      data-mobile-nav-panel
     >
-      <span class="sr-only">Abrir menú</span>
-      <span class="flex flex-col gap-0.5">
-        <span class="h-0.5 w-4 bg-slate-300 rounded"></span>
-        <span class="h-0.5 w-4 bg-slate-300 rounded"></span>
-        <span class="h-0.5 w-4 bg-slate-300 rounded"></span>
-      </span>
-    </button>
-  </div>
-  <div
-    class="md:hidden border-t border-slate-800/80 bg-slate-950/95 px-6 py-3 hidden"
-    data-mobile-nav-panel
-  >
-    <nav class="flex flex-col gap-3 text-sm text-slate-300">
-      <a href="{{ url_for('home') }}" class="font-medium hover:text-white">
-        Inicio
+      <a href="{{ url_for('home') }}" class="block rounded-lg px-2 py-2 hover:bg-slate-900/80 transition-colors duration-200">
+        Iniciativas
       </a>
-      <a href="#quienes-somos" class="font-medium hover:text-white">
+      <a href="#quienes-somos" class="block rounded-lg px-2 py-2 hover:bg-slate-900/80 transition-colors duration-200">
         Quiénes Somos
       </a>
-      <a href="#como-funciona" class="font-medium hover:text-white">
-        Cómo funciona
+      <a href="#contacto" class="block rounded-lg px-2 py-2 hover:bg-slate-900/80 transition-colors duration-200">
+        Contacto
       </a>
-      <button
-        type="button"
-        class="mt-2 inline-flex items-center justify-center rounded-full bg-blue-500 hover:bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-lg hover:shadow-[0_20px_60px_rgba(0,0,0,0.7)] hover:scale-[1.01] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 transition"
-        data-modal-open="submit-initiative"
-        data-event-name="click_open-submit-modal_navbar-mobile"
-      >
-        Postulá tu iniciativa
-      </button>
+      {# Botón mobile "Postulá tu iniciativa" eliminado #}
     </nav>
   </div>
 </header>
