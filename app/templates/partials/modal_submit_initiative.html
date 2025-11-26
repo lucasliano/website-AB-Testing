@@ -1,0 +1,257 @@
+{# templates/partials/modal_submit_initiative.html #}
+<div
+  class="fixed inset-0 z-40 flex items-center justify-center px-4 py-6 hidden"
+  data-modal="submit-initiative"
+  aria-hidden="true"
+>
+  <div
+    class="absolute inset-0 bg-black/70 backdrop-blur-sm"
+    data-modal-overlay
+    data-event-name="click_overlay_modal-submit"
+  ></div>
+
+  <div class="relative z-50 w-full max-w-4xl rounded-3xl bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800/80 shadow-[0_30px_80px_rgba(0,0,0,0.9)] px-6 py-6 md:px-8 md:py-7">
+    <div class="flex items-center justify-between mb-5">
+      <div>
+        <h2 class="text-lg font-semibold text-white">
+          Postulá tu iniciativa
+        </h2>
+        <p class="mt-1 text-xs text-slate-400">
+          Completá el formulario para compartir tu proyecto con la comunidad. Los campos marcados con
+          <span class="text-rose-400">*</span> son obligatorios.
+        </p>
+      </div>
+      <button
+        type="button"
+        class="inline-flex items-center justify-center rounded-full p-1.5 text-slate-400 hover:bg-slate-800 hover:text-slate-100 transition"
+        data-modal-close
+        data-event-name="click_close_modal-submit"
+        aria-label="Cerrar modal"
+      >
+        ✕
+      </button>
+    </div>
+
+    <form
+      method="post"
+      action="{{ url_for('submit_initiative') }}"
+      class="space-y-4"
+      data-event-name="submit_initiative-form_modal-submit"
+    >
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label for="initiative-title" class="block text-xs font-semibold text-slate-200 mb-1">
+            Título de la iniciativa <span class="text-rose-400">*</span>
+          </label>
+          <input
+            id="initiative-title"
+            name="title"
+            type="text"
+            required
+            maxlength="120"
+            class="w-full rounded-2xl bg-slate-900/90 border border-slate-700/70 px-4 py-2.5 text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/60 focus:border-blue-500/60 transition"
+            placeholder="Ej. Laboratorio abierto de innovación estudiantil"
+            data-character-count
+            data-counter-id="initiative-title"
+          >
+          <p
+            class="mt-1 text-right text-[11px] text-slate-500"
+            data-character-counter
+            data-counter-for="initiative-title"
+            data-max-length="120"
+          >
+            0/120
+          </p>
+        </div>
+
+        <div>
+          <label for="initiative-owner" class="block text-xs font-semibold text-slate-200 mb-1">
+            Responsable <span class="text-rose-400">*</span>
+          </label>
+          <input
+            id="initiative-owner"
+            name="owner"
+            type="text"
+            required
+            maxlength="80"
+            class="w-full rounded-2xl bg-slate-900/90 border border-slate-700/70 px-4 py-2.5 text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/60 focus:border-blue-500/60 transition"
+            placeholder="Nombre y apellido / equipo"
+            data-character-count
+            data-counter-id="initiative-owner"
+          >
+          <p
+            class="mt-1 text-right text-[11px] text-slate-500"
+            data-character-counter
+            data-counter-for="initiative-owner"
+            data-max-length="80"
+          >
+            0/80
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label for="initiative-email" class="block text-xs font-semibold text-slate-200 mb-1">
+            Correo de contacto <span class="text-rose-400">*</span>
+          </label>
+          <input
+            id="initiative-email"
+            name="email"
+            type="email"
+            required
+            class="w-full rounded-2xl bg-slate-900/90 border border-slate-700/70 px-4 py-2.5 text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/60 focus:border-blue-500/60 transition"
+            placeholder="tu-correo@ejemplo.edu.ar"
+          >
+        </div>
+
+        <div>
+          <label for="initiative-status" class="block text-xs font-semibold text-slate-200 mb-1">
+            Estado actual <span class="text-rose-400">*</span>
+          </label>
+          <div class="relative">
+            <select
+              id="initiative-status"
+              name="status"
+              required
+              class="w-full appearance-none rounded-2xl bg-slate-900/90 border border-slate-700/70 px-4 py-2.5 pr-10 text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/60 focus:border-blue-500/60 transition"
+            >
+              <option value="">Seleccioná una opción</option>
+              <option value="idea">Idea en desarrollo</option>
+              <option value="proyecto">Proyecto en curso</option>
+            </select>
+            <span class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-slate-400">
+              ▾
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <label for="initiative-summary" class="block text-xs font-semibold text-slate-200 mb-1">
+          Resumen breve <span class="text-rose-400">*</span>
+        </label>
+        <textarea
+          id="initiative-summary"
+          name="summary"
+          required
+          maxlength="280"
+          class="w-full min-h-[120px] rounded-2xl bg-slate-900/90 border border-slate-700/70 px-4 py-3 text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/60 focus:border-blue-500/60 transition"
+          placeholder="Contanos en pocas líneas de qué se trata tu iniciativa y qué impacto busca generar."
+          data-character-count
+          data-counter-id="initiative-summary"
+        ></textarea>
+        <p
+          class="mt-1 text-right text-[11px] text-slate-500"
+          data-character-counter
+          data-counter-for="initiative-summary"
+          data-max-length="280"
+        >
+          0/280
+        </p>
+      </div>
+
+      <div>
+        <label for="initiative-description" class="block text-xs font-semibold text-slate-200 mb-1">
+          Descripción ampliada
+        </label>
+        <textarea
+          id="initiative-description"
+          name="description"
+          maxlength="1200"
+          class="w-full min-h-[160px] rounded-2xl bg-slate-900/90 border border-slate-700/70 px-4 py-3 text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/60 focus:border-blue-500/60 transition"
+          placeholder="Podés detallar antecedentes, actividades previstas, equipo, recursos disponibles y necesidades específicas."
+          data-character-count
+          data-counter-id="initiative-description"
+        ></textarea>
+        <p
+          class="mt-1 text-right text-[11px] text-slate-500"
+          data-character-counter
+          data-counter-for="initiative-description"
+          data-max-length="1200"
+        >
+          0/1200
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <p class="block text-xs font-semibold text-slate-200 mb-2">
+            Categorías principales <span class="text-rose-400">*</span>
+          </p>
+          <div class="flex flex-wrap gap-2" data-pill-group="categories">
+            {% set categories = [
+              ("tecnologia", "Tecnología e innovación"),
+              ("comunidad", "Vinculación con la comunidad"),
+              ("sostenibilidad", "Sostenibilidad y ambiente"),
+              ("extension", "Extensión universitaria"),
+              ("investigacion", "Investigación aplicada")
+            ] %}
+            {% for value, label in categories %}
+              <button
+                type="button"
+                class="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900 px-3 py-2 text-xs text-slate-200 cursor-pointer hover:bg-slate-800 data-[checked=true]:border-blue-500 data-[checked=true]:bg-blue-600/20 data-[checked=true]:text-blue-200 transition"
+                data-pill-option
+                data-pill-name="categories"
+                data-pill-value="{{ value }}"
+                data-event-name="click_categoria-pill_modal-submit"
+              >
+                <span class="h-2 w-2 rounded-full bg-slate-600 data-[checked=true]:bg-blue-400"></span>
+                <span>{{ label }}</span>
+              </button>
+            {% endfor %}
+          </div>
+          <input type="hidden" name="categories" data-pill-input="categories">
+        </div>
+
+        <div>
+          <p class="block text-xs font-semibold text-slate-200 mb-2">
+            Está buscando principalmente <span class="text-rose-400">*</span>
+          </p>
+          <div class="flex flex-wrap gap-2" data-pill-group="needs">
+            {% set needs = [
+              ("aliados", "Aliados y colaboraciones"),
+              ("financiamiento", "Financiamiento"),
+              ("voluntariado", "Voluntariado"),
+              ("difusion", "Difusión y comunicación"),
+              ("infraestructura", "Espacios e infraestructura")
+            ] %}
+            {% for value, label in needs %}
+              <button
+                type="button"
+                class="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900 px-3 py-2 text-xs text-slate-200 cursor-pointer hover:bg-slate-800 data-[checked=true]:border-blue-500 data-[checked=true]:bg-blue-600/20 data-[checked=true]:text-blue-200 transition"
+                data-pill-option
+                data-pill-name="needs"
+                data-pill-single
+                data-pill-value="{{ value }}"
+                data-event-name="click_necesidad-pill_modal-submit"
+              >
+                <span class="h-2 w-2 rounded-full bg-slate-600 data-[checked=true]:bg-blue-400"></span>
+                <span>{{ label }}</span>
+              </button>
+            {% endfor %}
+          </div>
+          <input type="hidden" name="needs" data-pill-input="needs">
+        </div>
+      </div>
+
+      <div class="mt-6 flex items-center justify-between gap-3">
+        <button
+          type="button"
+          class="rounded-full border border-slate-600 px-5 py-2 text-sm font-medium text-slate-200 hover:bg-slate-800/80 hover:border-blue-500/60 transition"
+          data-modal-close
+          data-event-name="click_cancelar_modal-submit"
+        >
+          Cancelar
+        </button>
+        <button
+          type="submit"
+          class="rounded-full bg-gradient-to-r from-sky-500 to-blue-600 px-8 py-2.5 text-sm font-semibold text-white shadow-lg hover:from-sky-400 hover:to-blue-500 hover:scale-[1.01] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 transition"
+          data-event-name="submit_publicar_modal-submit"
+        >
+          Publicar iniciativa
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

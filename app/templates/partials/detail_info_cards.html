@@ -1,0 +1,39 @@
+{# templates/partials/detail_info_cards.html #}
+<section class="mt-10">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <article class="bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-6 shadow-[0_20px_60px_rgba(0,0,0,0.7)]">
+      <h2 class="text-sm font-semibold text-slate-100 mb-4 border-b border-slate-700/80 pb-2 uppercase tracking-wide">
+        Descripción
+      </h2>
+      <div class="text-sm leading-relaxed text-slate-300 space-y-3">
+        {{ initiative.full_description | safe }}
+      </div>
+    </article>
+    <article class="bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-6 shadow-[0_20px_60px_rgba(0,0,0,0.7)]">
+      <h2 class="text-sm font-semibold text-slate-100 mb-4 border-b border-slate-700/80 pb-2 uppercase tracking-wide">
+        Recursos
+      </h2>
+      <div class="text-sm leading-relaxed text-slate-300 space-y-3">
+        {% if initiative.resources %}
+          <ul class="list-disc list-inside space-y-1">
+            {% for resource in initiative.resources %}
+              <li>
+                {% if resource.url %}
+                  <a href="{{ resource.url }}" class="text-sky-400 hover:text-sky-300 underline decoration-sky-500/70 underline-offset-2" data-event-name="click_recurso_detalle">
+                    {{ resource.label or resource.url }}
+                  </a>
+                {% else %}
+                  {{ resource.label }}
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p class="text-sm text-slate-500">
+            Los recursos asociados a esta iniciativa se publicarán próximamente.
+          </p>
+        {% endif %}
+      </div>
+    </article>
+  </div>
+</section>

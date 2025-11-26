@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "title": "Laboratorio abierto de innovaci\u00f3n estudiantil",
+        "short_description": "Espacio colaborativo para prototipar soluciones a problemas de la comunidad universitaria.",
+        "full_description": "\n<p>Este laboratorio busca conectar estudiantes de distintas carreras para trabajar sobre problemas concretos de la UNLP y su entorno.</p>\n<p>La idea es ofrecer un espacio con herramientas, mentor\u00edas y una red de aliados para que las ideas puedan convertirse en proyectos reales.</p>\n",
+        "responsable": "Equipo de Innovaci\u00f3n UNLP",
+        "contact_email": "innovacion@unlp.edu.ar",
+        "categories": ["Tecnolog\u00eda e innovaci\u00f3n",
+        "Vinculaci\u00f3n con la comunidad"],
+        "status": "proyecto",
+        "status_label": "Proyecto en curso",
+        "status_type": "proyecto",
+        "looking_for": "Aliados institucionales y difusi\u00f3n",
+        "resources": [
+            {
+                "label": "Presentaci\u00f3n general",
+                "url": "https://ejemplo.unlp.edu.ar/innovacion.pdf"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Programa de tutor\u00edas entre pares",
+        "short_description": "Acompa\u00f1amiento acad\u00e9mico y emocional para ingresantes a trav\u00e9s de tutor\u00edas entre estudiantes.",
+        "full_description": "\nEl programa propone capacitar a tutores pares para acompa\u00f1ar a ingresantes durante su primer a\u00f1o de cursada.\nBuscamos fortalecer la permanencia y el sentido de pertenencia a la vida universitaria.\nEl programa propone capacitar a tutores pares para acompa\u00f1ar a ingresantes durante su primer a\u00f1o de cursada.\nBuscamos fortalecer la permanencia y el sentido de pertenencia a la vida universitaria.\nEl programa propone capacitar a tutores pares para acompa\u00f1ar a ingresantes durante su primer a\u00f1o de cursada.\nBuscamos fortalecer la permanencia y el sentido de pertenencia a la vida universitaria.\nEl programa propone capacitar a tutores pares para acompa\u00f1ar a ingresantes durante su primer a\u00f1o de cursada.\nBuscamos fortalecer la permanencia y el sentido de pertenencia a la vida universitaria.\nEl programa propone capacitar a tutores pares para acompa\u00f1ar a ingresantes durante su primer a\u00f1o de cursada.\nBuscamos fortalecer la permanencia y el sentido de pertenencia a la vida universitaria.\nEl programa propone capacitar a tutores pares para acompa\u00f1ar a ingresantes durante su primer a\u00f1o de cursada.\nBuscamos fortalecer la permanencia y el sentido de pertenencia a la vida universitaria.\nEl programa propone capacitar a tutores pares para acompa\u00f1ar a ingresantes durante su primer a\u00f1o de cursada.\nBuscamos fortalecer la permanencia y el sentido de pertenencia a la vida universitaria.\n",
+        "responsable": "Centro de Estudiantes",
+        "contact_email": "tutorias@unlp.edu.ar",
+        "categories": ["Vinculaci\u00f3n con la comunidad",
+        "Extensi\u00f3n universitaria"],
+        "status": "idea",
+        "status_label": "Idea en desarrollo",
+        "status_type": "idea",
+        "looking_for": "Voluntariado y difusi\u00f3n",
+        "resources": []
+    },
+    {
+        "id": 3,
+        "title": "LACONCHA DE TU MADRE MARTIN",
+        "short_description": "Acompa\u00f1amiento acad\u00e9mico y emocional para ingresantes a trav\u00e9s de tutor\u00edas entre estudiantes.",
+        "full_description": "\nEl programa propone capacitar a tutores pares para acompa\u00f1ar a ingresantes durante su primer a\u00f1o de cursada.\nBuscamos fortalecer la permanencia y el sentido de pertenencia a la vida universitaria.\nEl programa propone capacitar a tutores pares para acompa\u00f1ar a ingresantes durante su primer a\u00f1o de cursada.\nBuscamos fortalecer la permanencia y el sentido de pertenencia a la vida universitaria.\nEl programa propone capacitar a tutores pares para acompa\u00f1ar a ingresantes durante su primer a\u00f1o de cursada.\nBuscamos fortalecer la permanencia y el sentido de pertenencia a la vida universitaria.\nEl programa propone capacitar a tutores pares para acompa\u00f1ar a ingresantes durante su primer a\u00f1o de cursada.\nBuscamos fortalecer la permanencia y el sentido de pertenencia a la vida universitaria.\nEl programa propone capacitar a tutores pares para acompa\u00f1ar a ingresantes durante su primer a\u00f1o de cursada.\nBuscamos fortalecer la permanencia y el sentido de pertenencia a la vida universitaria.\nEl programa propone capacitar a tutores pares para acompa\u00f1ar a ingresantes durante su primer a\u00f1o de cursada.\nBuscamos fortalecer la permanencia y el sentido de pertenencia a la vida universitaria.\nEl programa propone capacitar a tutores pares para acompa\u00f1ar a ingresantes durante su primer a\u00f1o de cursada.\nBuscamos fortalecer la permanencia y el sentido de pertenencia a la vida universitaria.\n",
+        "responsable": "Centro de Estudiantes",
+        "contact_email": "tutorias@unlp.edu.ar",
+        "categories": ["Vinculaci\u00f3n con la comunidad",
+        "Extensi\u00f3n universitaria"],
+        "status": "idea",
+        "status_label": "Idea en desarrollo",
+        "status_type": "idea",
+        "looking_for": "Voluntariado y difusi\u00f3n",
+        "resources": []
+    }
+]

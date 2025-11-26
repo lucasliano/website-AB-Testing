@@ -1,19 +1,22 @@
-<!doctype html>
-<html lang="en">
+{# templates/base.html #}
+<!DOCTYPE html>
+<html lang="es">
   <head>
     <meta charset="utf-8">
-    <title>{{ title }}</title>
+    <title>{% block title %}Iniciativas{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Open-source RF network analyzer for serious engineers and university labs.">
     <link rel="stylesheet" href="{{ url_for('static', path='css/main.css') }}">
+    {% block extra_head %}{% endblock %}
   </head>
-  <body class="bg-brand-bg text-gray-900">
-    {% include jinja_load_variant_template("partials/navbar.html") %}
-    <main class="pt-16">
+  <body class="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-black text-slate-100 antialiased">
+    {% include jinja_load_variant_template("partials/navbar.html", current_variant) %}
+    <main class="min-h-[calc(100vh-4rem)] pt-10 pb-16">
       {% block content %}{% endblock %}
     </main>
-    {% include jinja_load_variant_template("partials/footer.html") %}
-    <script>window.APP_VARIANT = "{{current_variant}}";</script>
+    {% include jinja_load_variant_template("partials/modal_submit_initiative.html", current_variant) %}
+    <script>window.APP_VARIANT = "{{ current_variant }}";</script>
     <script src="{{ url_for('static', path='js/tracking.js') }}"></script>
+    <script src="{{ url_for('static', path='js/front-end.js') }}"></script>
+    {% block extra_scripts %}{% endblock %}
   </body>
 </html>

@@ -30,8 +30,8 @@ import sqlite3
 import argparse
 from typing import Dict, Any, Tuple, Optional
 
-DB_URL = "/app/data/rf_site.db"
-# DB_URL = "/app/rf_site.db"  # DEBUG ONLY
+# DB_URL = "/app/data/rf_site.db"
+DB_URL = "/app/rf_site.db"  # DEBUG ONLY
 
 
 # --------- helpers for nice display --------- #

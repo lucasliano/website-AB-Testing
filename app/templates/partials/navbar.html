@@ -1,95 +1,69 @@
-<header
-  class="fixed top-0 inset-x-0 z-50 bg-transparent transition-colors duration-300"
-  id="site-header"
->
-  <nav
-    class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between"
-    role="navigation"
-    aria-label="Main navigation"
-  >
-    <a href="/" class="flex items-center gap-2">
-      <span class="inline-flex h-7 w-7 rounded-lg bg-blue-900 text-white text-xs font-bold items-center justify-center">
-        RF
+{# templates/partials/navbar.html #}
+<header class="bg-slate-950/95 border-b border-slate-800/80 backdrop-blur-sm">
+  <div class="max-w-6xl mx-auto px-6 lg:px-8 flex items-center justify-between h-16">
+    <div class="flex items-center gap-2">
+      <span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-tr from-sky-500 to-blue-600 text-sm font-bold text-slate-950 shadow-lg">
+        IN
       </span>
-      <span class="font-semibold text-gray-900 tracking-tight">
-        OpenRF Instruments
+      <span class="text-sm font-semibold tracking-tight text-slate-100">
+        Iniciativas UNLP
       </span>
-    </a>
-
+    </div>
+    <nav class="hidden md:flex items-center gap-6 text-sm text-slate-300">
+      <a href="{{ url_for('home') }}" class="relative font-medium hover:text-white">
+        Inicio
+      </a>
+      <a href="#quienes-somos" class="font-medium hover:text-white">
+        Quiénes Somos
+      </a>
+      <a href="#como-funciona" class="font-medium hover:text-white">
+        Cómo funciona
+      </a>
+      <button
+        type="button"
+        class="ml-4 rounded-full bg-blue-500 hover:bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-lg hover:shadow-[0_20px_60px_rgba(0,0,0,0.7)] hover:scale-[1.01] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 transition"
+        data-modal-open="submit-initiative"
+        data-event-name="click_open-submit-modal_navbar"
+      >
+        Postulá tu iniciativa
+      </button>
+    </nav>
     <button
-      class="md:hidden inline-flex items-center justify-center p-2 rounded-lg border border-gray-300"
       type="button"
-      aria-label="Toggle navigation menu"
-      aria-expanded="false"
-      aria-controls="mobile-menu"
-      id="nav-toggle"
+      class="md:hidden inline-flex items-center justify-center rounded-full border border-slate-700 px-2.5 py-1.5 text-xs text-slate-200 hover:bg-slate-800"
+      data-event-name="click_toggle-mobile-nav_navbar"
+      data-toggle="mobile-nav"
     >
-      <span class="sr-only">Open main menu</span>
-      <span class="block w-5 h-0.5 bg-gray-800 mb-1"></span>
-      <span class="block w-5 h-0.5 bg-gray-800 mb-1"></span>
-      <span class="block w-5 h-0.5 bg-gray-800"></span>
+      <span class="sr-only">Abrir menú</span>
+      <span class="flex flex-col gap-0.5">
+        <span class="h-0.5 w-4 bg-slate-300 rounded"></span>
+        <span class="h-0.5 w-4 bg-slate-300 rounded"></span>
+        <span class="h-0.5 w-4 bg-slate-300 rounded"></span>
+      </span>
     </button>
-
-    <div class="hidden md:flex items-center gap-6 text-sm font-medium">
-      <a href="/product" class="hover:text-blue-900">Product</a>
-      <a href="/#applications" class="hover:text-blue-900">Applications</a>
-      <a href="/universities" class="hover:text-blue-900">Universities</a>
-      <a href="/documentation" class="hover:text-blue-900">Documentation</a>
-      <a href="/about" class="hover:text-blue-900">About</a>
-      <a
-        href="/product"
-        class="px-4 py-2 rounded-lg bg-blue-900 text-white text-sm font-semibold shadow-sm hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900"
-        data-event-name="click_buy-now_navbar"
-      >
-        Buy now
-      </a>
-    </div>
-  </nav>
-
-  <div
-    class="md:hidden hidden border-t border-gray-200 bg-white"
-    id="mobile-menu"
-  >
-    <div class="max-w-6xl mx-auto px-4 py-4 space-y-3 text-sm font-medium">
-      <a href="/product" class="block">Product</a>
-      <a href="/#applications" class="block">Applications</a>
-      <a href="/universities" class="block">Universities</a>
-      <a href="/documentation" class="block">Documentation</a>
-      <a href="/about" class="block">About</a>
-      <a
-        href="/product"
-        class="inline-flex w-full justify-center px-4 py-2 rounded-lg bg-blue-900 text-white text-sm font-semibold shadow-sm"
-        data-event-name="click_buy-now_navbar-mobile"
-      >
-        Buy now
-      </a>
-    </div>
   </div>
-
-  <script>
-    // Small inline script for nav scroll background & mobile menu
-    (function () {
-      const header = document.getElementById("site-header");
-      const toggle = document.getElementById("nav-toggle");
-      const mobileMenu = document.getElementById("mobile-menu");
-
-      function onScroll() {
-        if (window.scrollY > 10) {
-          header.classList.add("bg-white", "shadow-md");
-        } else {
-          header.classList.remove("bg-white", "shadow-md");
-        }
-      }
-      window.addEventListener("scroll", onScroll);
-      onScroll();
-
-      if (toggle && mobileMenu) {
-        toggle.addEventListener("click", function () {
-          const expanded = this.getAttribute("aria-expanded") === "true";
-          this.setAttribute("aria-expanded", String(!expanded));
-          mobileMenu.classList.toggle("hidden");
-        });
-      }
-    })();
-  </script>
+  <div
+    class="md:hidden border-t border-slate-800/80 bg-slate-950/95 px-6 py-3 hidden"
+    data-mobile-nav-panel
+  >
+    <nav class="flex flex-col gap-3 text-sm text-slate-300">
+      <a href="{{ url_for('home') }}" class="font-medium hover:text-white">
+        Inicio
+      </a>
+      <a href="#quienes-somos" class="font-medium hover:text-white">
+        Quiénes Somos
+      </a>
+      <a href="#como-funciona" class="font-medium hover:text-white">
+        Cómo funciona
+      </a>
+      <button
+        type="button"
+        class="mt-2 inline-flex items-center justify-center rounded-full bg-blue-500 hover:bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-lg hover:shadow-[0_20px_60px_rgba(0,0,0,0.7)] hover:scale-[1.01] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 transition"
+        data-modal-open="submit-initiative"
+        data-event-name="click_open-submit-modal_navbar-mobile"
+      >
+        Postulá tu iniciativa
+      </button>
+    </nav>
+  </div>
 </header>

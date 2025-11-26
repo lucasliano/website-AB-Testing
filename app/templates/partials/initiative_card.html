@@ -1,0 +1,83 @@
+{# templates/partials/initiative_card.html #}
+<article
+  class="flex flex-col justify-between bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800/80 rounded-3xl px-5 py-5 lg:px-6 lg:py-6 shadow-[0_20px_60px_rgba(0,0,0,0.7)] hover:-translate-y-1 hover:shadow-[0_30px_80px_rgba(0,0,0,0.9)] hover:border-blue-500/50 transition-transform transition-shadow duration-150"
+  data-initiative-card
+  data-initiative-id="{{ initiative.id }}"
+  data-initiative-title="{{ initiative.title | lower }}"
+  data-initiative-category="{{ (initiative.category or '') | lower }}"
+  data-initiative-status="{{ (initiative.status or '') | lower }}"
+>
+  <header class="flex items-start justify-between gap-3">
+    <h2 class="text-lg font-semibold text-white">
+      {{ initiative.title }}
+    </h2>
+    {% set status_type = initiative.status_type or initiative.status %}
+    {% if status_type == "idea" %}
+      {% set status_classes = "bg-amber-400/90 text-slate-950" %}
+    {% elif status_type == "proyecto" or status_type == "project" %}
+      {% set status_classes = "bg-sky-500 text-slate-950" %}
+    {% else %}
+      {% set status_classes = "bg-slate-200 text-slate-900" %}
+    {% endif %}
+    <span class="inline-flex shrink-0 items-center rounded-full px-3 py-1 text-xs font-semibold {{ status_classes }}">
+      {{ initiative.status_label or initiative.status }}
+    </span>
+  </header>
+
+  <p class="mt-3 text-sm text-slate-300 line-clamp-3">
+    {{ initiative.short_description }}
+  </p>
+
+  <dl class="mt-4 space-y-3 text-sm">
+    <div class="flex flex-col gap-0.5">
+      <dt class="text-xs font-semibold text-slate-100 uppercase tracking-wide">
+        Responsable
+      </dt>
+      <dd class="text-sm text-slate-300">
+        {{ initiative.responsable }}
+      </dd>
+    </div>
+    <div class="flex flex-col gap-0.5">
+      <dt class="text-xs font-semibold text-slate-100 uppercase tracking-wide">
+        Categorías
+      </dt>
+      <dd>
+        <div class="flex flex-wrap gap-2 mt-1">
+          {% for category in initiative.categories %}
+            <span class="inline-flex items-center rounded-full border border-slate-700/80 bg-slate-950/60 px-3 py-1 text-xs font-medium text-slate-200">
+              {{ category }}
+            </span>
+          {% else %}
+            <span class="text-xs text-slate-500">Sin categoría definida</span>
+          {% endfor %}
+        </div>
+      </dd>
+    </div>
+    <div class="flex flex-col gap-0.5">
+      <dt class="text-xs font-semibold text-slate-100 uppercase tracking-wide">
+        Está buscando
+      </dt>
+      <dd class="text-sm text-slate-300">
+        {{ initiative.looking_for }}
+      </dd>
+    </div>
+  </dl>
+
+  <div class="mt-5 flex items-center gap-3">
+    <a
+      href="{{ url_for('initiative_detail', initiative_id=initiative.id) }}"
+      class="inline-flex flex-1 items-center justify-center rounded-full bg-gradient-to-r from-sky-500 to-blue-600 text-sm font-semibold text-white py-2.5 shadow-lg hover:from-sky-400 hover:to-blue-500 hover:scale-[1.01] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 transition"
+      data-event-name="click_ver-detalle_initiative-card"
+    >
+      Ver detalle
+    </a>
+    <button
+      type="button"
+      class="inline-flex items-center justify-center rounded-full border border-slate-600 px-3 py-2 text-xs font-medium text-slate-200 hover:bg-slate-800/80 hover:border-blue-500/60 transition"
+      data-event-name="click_contactar_initiative-card"
+      data-initiative-contact="{{ initiative.id }}"
+    >
+      Contactar
+    </button>
+  </div>
+</article>
