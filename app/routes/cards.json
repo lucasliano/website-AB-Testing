@@ -222,7 +222,7 @@
             "Telecomunicaciones"
         ],
         "status": "Nueva Linea de Trabajo",
-        "looking_for": "1"
+        "looking_for": "4"
     },
 
     {
@@ -250,7 +250,7 @@
             "Telecomunicaciones"
         ],
         "status": "Proyecto en Curso",
-        "looking_for": "1"
+        "looking_for": "4"
     },
 
     {
@@ -277,7 +277,7 @@
             "Firmware"
         ],
         "status": "Proyecto en Curso",
-        "looking_for": "1"
+        "looking_for": "4"
     },
     {
         "id": 10,

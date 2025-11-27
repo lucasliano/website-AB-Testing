@@ -1,12 +1,10 @@
-// static/js/front-end.js
-// Vanilla JS to handle navigation, modal behavior, filters, character counters and pill groups.
+// Vanilla JS to handle interaction of front-end components.
 
 document.addEventListener("DOMContentLoaded", () => {
   initMobileNavToggle();
   initModalSystem();
   initFiltering();
-  initCharacterCounters();
-  initPillGroups();
+  initContactForm();
 });
 
 // Toggle mobile navigation panel using data-toggle="mobile-nav" and data-mobile-nav-panel
@@ -20,7 +18,7 @@ function initMobileNavToggle() {
   });
 }
 
-// Simple modal system driven by data-modal-open / data-modal / data-modal-close / data-modal-overlay
+// Popup form
 function initModalSystem() {
   const openers = document.querySelectorAll("[data-modal-open]");
   const modals = document.querySelectorAll("[data-modal]");
@@ -74,7 +72,7 @@ function initModalSystem() {
   });
 }
 
-// Filtering initiatives on the dashboard by search, category and status
+// Search engine
 function initFiltering() {
   const searchInput = document.querySelector("[data-filter-search]");
   const categorySelect = document.querySelector("[data-filter-category]");
@@ -130,75 +128,61 @@ function initFiltering() {
   });
 }
 
-// Character counters for inputs / textareas with data-character-count
-function initCharacterCounters() {
-  const inputs = document.querySelectorAll("[data-character-count]");
-  if (!inputs.length) return;
+// Contact form
+function initContactForm() {
+  // El modal del formulario está marcado con data-modal="contact-form"
+  const modal = document.querySelector('[data-modal="contact-form"]');
+  if (!modal) return;
 
-  inputs.forEach((input) => {
-    const id = input.getAttribute("data-counter-id");
-    if (!id) return;
-    const counter = document.querySelector(`[data-character-counter][data-counter-for='${id}']`);
-    if (!counter) return;
+  const form = modal.querySelector("form");
+  if (!form) return;
 
-    const max = parseInt(counter.getAttribute("data-max-length") || input.getAttribute("maxlength") || "0", 10);
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault(); // evitamos submit clásico (recarga de página)
 
-    const update = () => {
-      const length = input.value.length;
-      if (max > 0) {
-        counter.textContent = `${length}/${max}`;
-      } else {
-        counter.textContent = `${length}`;
+    const submitButton = form.querySelector("button[type='submit']");
+    if (submitButton) {
+      submitButton.disabled = true;
+    }
+
+    try {
+      // Usamos FormData para incluir también el archivo
+      const formData = new FormData(form);
+
+      // Por si en el HTML dejaste el campo iniciativa como disabled,
+      // nos aseguramos de incluirlo igualmente:
+      const iniciativaInput = modal.querySelector("#contact-iniciativa");
+      if (iniciativaInput) {
+        formData.set("iniciativa", iniciativaInput.value || "");
       }
-    };
 
-    input.addEventListener("input", update);
-    update();
-  });
-}
+      const response = await fetch("/api/contact-upload", {
+        method: "POST",
+        body: formData,
+      });
 
-// Pill radio / multi-select groups used in the submission modal
-function initPillGroups() {
-  const options = document.querySelectorAll("[data-pill-option]");
-  if (!options.length) return;
-
-  function updateHiddenInput(name, values) {
-    const input = document.querySelector(`[data-pill-input='${name}']`);
-    if (!input) return;
-    input.value = Array.isArray(values) ? values.join(",") : values;
-  }
-
-  options.forEach((option) => {
-    option.addEventListener("click", () => {
-      const name = option.getAttribute("data-pill-name");
-      const value = option.getAttribute("data-pill-value");
-      const isSingle = option.hasAttribute("data-pill-single");
-      if (!name || !value) return;
-
-      const groupOptions = document.querySelectorAll(`[data-pill-option][data-pill-name='${name}']`);
-
-      if (isSingle) {
-        groupOptions.forEach((opt) => {
-          const isCurrent = opt === option;
-          if (isCurrent) {
-            const currentlyChecked = opt.getAttribute("data-checked") === "true";
-            const newState = !currentlyChecked;
-            opt.setAttribute("data-checked", newState ? "true" : "false");
-            updateHiddenInput(name, newState ? value : "");
-          } else {
-            opt.setAttribute("data-checked", "false");
-          }
-        });
-      } else {
-        const checked = option.getAttribute("data-checked") === "true";
-        option.setAttribute("data-checked", checked ? "false" : "true");
-
-        const selectedValues = Array.from(groupOptions)
-          .filter((opt) => opt.getAttribute("data-checked") === "true")
-          .map((opt) => opt.getAttribute("data-pill-value"));
-
-        updateHiddenInput(name, selectedValues);
+      if (!response.ok) {
+        throw new Error("Error al enviar el formulario");
       }
-    });
+
+      // Si querés leer la respuesta JSON:
+      // const data = await response.json();
+
+      // Feedback mínimo:
+      form.reset();
+      alert("¡Gracias! Hemos recibido tu envío.");
+
+      // Si tenés lógica para cerrar el modal, la podés invocar acá.
+      // Por ejemplo, si en initModalSystem tenés algo tipo closeModal(modal):
+      // closeModal(modal);
+
+    } catch (err) {
+      console.error(err);
+      alert("Hubo un problema al enviar el formulario. Intentá de nuevo.");
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+      }
+    }
   });
 }

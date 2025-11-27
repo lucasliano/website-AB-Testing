@@ -29,9 +29,10 @@ import os
 import sqlite3
 import argparse
 from typing import Dict, Any, Tuple, Optional
+import json
 
-# DB_URL = "/app/data/rf_site.db"
-DB_URL = "/app/rf_site.db"  # DEBUG ONLY
+DB_URL = "/app/data/rf_site.db"
+# DB_URL = "/app/rf_site.db"  # DEBUG ONLY
 
 
 # --------- helpers for nice display --------- #
@@ -334,6 +335,102 @@ def recent_events(conn: sqlite3.Connection, limit: int = 20):
         )
     print()
 
+def contact_forms(conn: sqlite3.Connection, limit: Optional[int] = None):
+    """
+    Muestra los envíos del formulario de contacto (event_name='contact_form_submitted')
+    de forma ordenada.
+    """
+    cur = conn.cursor()
+
+    base_query = """
+        SELECT id, timestamp, variant_name, page_url, metadata
+        FROM events
+        WHERE event_name = ?
+        ORDER BY timestamp ASC
+    """
+    params = ["contact_form_submitted"]
+
+    if limit is not None:
+        base_query += " LIMIT ?"
+        params.append(limit)
+
+    cur.execute(base_query, params)
+    rows = cur.fetchall()
+
+    if not rows:
+        print("No contact_form_submitted events found.")
+        return
+
+    print(f"\nContact form submissions (total={len(rows)}):")
+    print("-" * 120)
+    # Encabezado tipo tabla, en línea con el estilo del archivo
+    print(
+        f"{'ID':>4} "
+        f"{'Timestamp':<20} "
+        f"{'Variant':<8} "
+        f"{'Page':<12} "
+        f"{'Nombre':<14} "
+        f"{'Apellido':<14} "
+        f"{'Email':<24} "
+        f"{'Carrera':<16} "
+        f"{'Iniciativa':<18} "
+        f"{'Archivo':<16}"
+    )
+    print("-" * 120)
+
+    def safe_get(meta: dict, key: str) -> str:
+        val = meta.get(key, "") if isinstance(meta, dict) else ""
+        if val is None:
+            return ""
+        return str(val)
+
+    def trunc(s: str, max_len: int) -> str:
+        s = s or ""
+        if len(s) <= max_len:
+            return s
+        return s[: max_len - 1] + "…"
+
+    for r in rows:
+        raw_meta = r["metadata"]
+
+        # metadata puede venir como texto JSON o ya como dict, lo manejamos genéricamente
+        meta = {}
+        if isinstance(raw_meta, str):
+            try:
+                meta = json.loads(raw_meta)
+            except json.JSONDecodeError:
+                meta = {}
+        elif isinstance(raw_meta, bytes):
+            try:
+                meta = json.loads(raw_meta.decode("utf-8"))
+            except Exception:
+                meta = {}
+        elif isinstance(raw_meta, dict):
+            meta = raw_meta
+
+        nombre = trunc(safe_get(meta, "nombre"), 14)
+        apellido = trunc(safe_get(meta, "apellido"), 14)
+        email = trunc(safe_get(meta, "email"), 24)
+        carrera = trunc(safe_get(meta, "carrera"), 16)
+        iniciativa = trunc(safe_get(meta, "iniciativa"), 18)
+        archivo_nombre = trunc(safe_get(meta, "archivo_nombre"), 16)
+
+        print(
+            f"{r['id']:>4} "
+            f"{str(r['timestamp'])[:19]:<20} "
+            f"{(r['variant_name'] or ''):<8} "
+            f"{trunc(r['page_url'] or '', 12):<12} "
+            f"{nombre:<14} "
+            f"{apellido:<14} "
+            f"{email:<24} "
+            f"{carrera:<16} "
+            f"{iniciativa:<18} "
+            f"{archivo_nombre:<16}"
+        )
+
+    print()
+
+
 
 # --------- CLI plumbing --------- #
 
@@ -377,6 +474,18 @@ def parse_args() -> Dict[str, Any]:
     le = subparsers.add_parser("recent", help="Show recent events")
     le.add_argument("--limit", type=int, default=20, help="How many events to show")
 
+    cf = subparsers.add_parser(
+        "contact-forms",
+        help="Show contact form submissions (event_name='contact_form_submitted')",
+    )
+    cf.add_argument(
+        "--limit",
+        type=int,
+        default=None,
+        help="Optional limit of rows to show (oldest first)",
+    )
+
+
     return vars(parser.parse_args())
 
 
@@ -402,6 +511,8 @@ def main():
             conversion_by_variant(conn, event_name=args["event"], page=args["page"])
         elif command == "recent":
             recent_events(conn, limit=args["limit"])
+        elif command == "contact-forms":
+            contact_forms(conn, limit=args["limit"])
     finally:
         conn.close()
 

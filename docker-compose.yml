@@ -7,9 +7,9 @@ services:
     build:
       context: .
     environment:
-      DB_URL: "sqlite:////app/rf_site.db"  # DEBUG ONLY
-      # DB_URL: "sqlite:////app/data/rf_site.db"
-      FASTAPI_NAME: "RF Analyzer"
+      # DB_URL: "sqlite:////app/rf_site.db"  # DEBUG ONLY
+      DB_URL: "sqlite:////app/data/rf_site.db"
+      FASTAPI_NAME: "web server"
     volumes:
       - db_data:/app/data/
     ports:
