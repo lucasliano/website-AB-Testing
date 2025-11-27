@@ -362,8 +362,8 @@ def contact_forms(conn: sqlite3.Connection, limit: Optional[int] = None):
         return
 
     print(f"\nContact form submissions (total={len(rows)}):")
-    print("-" * 120)
-    # Encabezado tipo tabla, en línea con el estilo del archivo
+    print("-" * 170)
+    # Encabezado tipo tabla
     print(
         f"{'ID':>4} "
         f"{'Timestamp':<20} "
@@ -374,9 +374,10 @@ def contact_forms(conn: sqlite3.Connection, limit: Optional[int] = None):
         f"{'Email':<24} "
         f"{'Carrera':<16} "
         f"{'Iniciativa':<18} "
-        f"{'Archivo':<16}"
+        f"{'Archivo':<16} "
+        f"{'Filepath':<30}"
     )
-    print("-" * 120)
+    print("-" * 170)
 
     def safe_get(meta: dict, key: str) -> str:
         val = meta.get(key, "") if isinstance(meta, dict) else ""
@@ -393,7 +394,7 @@ def contact_forms(conn: sqlite3.Connection, limit: Optional[int] = None):
     for r in rows:
         raw_meta = r["metadata"]
 
-        # metadata puede venir como texto JSON o ya como dict, lo manejamos genéricamente
+        # metadata puede venir como texto JSON, bytes o dict
         meta = {}
         if isinstance(raw_meta, str):
             try:
@@ -414,6 +415,7 @@ def contact_forms(conn: sqlite3.Connection, limit: Optional[int] = None):
         carrera = trunc(safe_get(meta, "carrera"), 16)
         iniciativa = trunc(safe_get(meta, "iniciativa"), 18)
         archivo_nombre = trunc(safe_get(meta, "archivo_nombre"), 16)
+        archivo_path = trunc(safe_get(meta, "archivo_path"), 30)
 
         print(
             f"{r['id']:>4} "
@@ -425,9 +427,9 @@ def contact_forms(conn: sqlite3.Connection, limit: Optional[int] = None):
             f"{email:<24} "
             f"{carrera:<16} "
             f"{iniciativa:<18} "
-            f"{archivo_nombre:<16}"
+            f"{archivo_nombre:<16} "
+            f"{archivo_path:<30}"
         )
-
     print()
 
 
