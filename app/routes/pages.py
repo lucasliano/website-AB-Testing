@@ -57,10 +57,14 @@ def _get_initiative_by_id(initiative_id: int) -> Optional[Dict[str, Any]]:
 @router.get("/", name="home")
 def home(request: Request):
     initiatives = load_initiatives()
-    ctx = common_context(request, title="Iniciativas - Home")
+    ctx = common_context(request, title="Iniciativas")
     ctx.update({"initiatives": initiatives,})
     return render_variant_template(request, "home.html", ctx)
 
+@router.get("/about", name="about")
+def about(request: Request):
+    ctx = common_context(request, title="GIAR")
+    return render_variant_template(request, "about.html", ctx)
 
 @router.get("/initiatives/{initiative_id}", name="initiative_detail")
 def initiative_detail(request: Request, initiative_id: int):

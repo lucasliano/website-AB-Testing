@@ -1,6 +1,6 @@
 {# templates/partials/navbar.html #}
 <header class="sticky top-0 z-50 bg-slate-950/50 border-b border-slate-800/50 backdrop-blur-md shadow-sm transition-all duration-300">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
     <!-- Barra principal -->
     <div class="flex items-center justify-between gap-3">
       <!-- Brand -->
@@ -12,13 +12,8 @@
         <img
           src="{{ url_for('static', path='images/giar.png') }}"
           alt="GIAR"
-          class="h-8 w-auto hidden sm:block"
+          class="h-8 w-auto sm:block"
         >
-
-        <!-- Marca mínima para mobile -->
-        <span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500 to-blue-600 text-xs font-bold text-slate-950 sm:hidden">
-          IN
-        </span>
       </a>
 
       <!-- Botón hamburguesa -->
@@ -40,19 +35,18 @@
 
       <!-- Navegación desktop -->
       <nav
-        class="hidden md:flex items-center gap-6 text-sm text-slate-300"
+        class="hidden md:flex items-center gap-6 text-md text-slate-300"
         role="navigation"
       >
         <a href="{{ url_for('home') }}" class="font-medium hover:text-white transition-colors duration-200">
           Iniciativas
         </a>
-        <a href="#quienes-somos" class="font-medium hover:text-white transition-colors duration-200">
+        <a href="{{ url_for('about') }}" class="font-medium hover:text-white transition-colors duration-200">
           Quiénes Somos
         </a>
-        <a href="#contacto" class="font-medium hover:text-white transition-colors duration-200">
+        <a href="{{ url_for('about') }}#contacto" class="font-medium hover:text-white transition-colors duration-200">
           Contacto
         </a>
-        {# Botón "Postulá tu iniciativa" eliminado #}
       </nav>
     </div>
 
@@ -66,13 +60,12 @@
       <a href="{{ url_for('home') }}" class="block rounded-lg px-2 py-2 hover:bg-slate-900/80 transition-colors duration-200">
         Iniciativas
       </a>
-      <a href="#quienes-somos" class="block rounded-lg px-2 py-2 hover:bg-slate-900/80 transition-colors duration-200">
+      <a href="{{ url_for('about') }}" class="block rounded-lg px-2 py-2 hover:bg-slate-900/80 transition-colors duration-200">
         Quiénes Somos
       </a>
-      <a href="#contacto" class="block rounded-lg px-2 py-2 hover:bg-slate-900/80 transition-colors duration-200">
+      <a href="{{ url_for('about') }}#contacto" class="block rounded-lg px-2 py-2 hover:bg-slate-900/80 transition-colors duration-200">
         Contacto
       </a>
-      {# Botón mobile "Postulá tu iniciativa" eliminado #}
     </nav>
   </div>
 </header>

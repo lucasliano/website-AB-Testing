@@ -4,25 +4,19 @@
   data-initiative-card
   data-initiative-id="{{ initiative.id }}"
   data-initiative-title="{{ initiative.title | lower }}"
-  data-initiative-category="{{ (initiative.category or '') | lower }}"
-  data-initiative-status="{{ (initiative.status or '') | lower }}"
+  data-initiative-status="{{ (initiative.status) | lower }}"
 >
-
-  {# ---------------------------- #}
-  {# STATUS BADGE (mismo color) #}
-  {# ---------------------------- #}
-  {% set status_type = initiative.status_type or initiative.status %}
-  {% if status_type == "idea" %}
+  {% if initiative.status == "Proyecto en Curso" %}
     {% set status_classes = "bg-amber-400/90 text-slate-950" %}
-  {% elif status_type == "proyecto" or status_type == "project" %}
-    {% set status_classes = "bg-sky-500 text-slate-950" %}
-  {% else %}
-    {% set status_classes = "bg-slate-200 text-slate-900" %}
+  {% elif initiative.status == "Nuevo Proyecto" %}
+    {% set status_classes = "bg-pink-500 text-slate-950" %}
+  {% elif initiative.status == "Nueva Linea de Trabajo" %}
+    {% set status_classes = "bg-lime-300 text-slate-900" %}
   {% endif %}
 
   <!-- BADGE ARRIBA A LA IZQUIERDA — SIN CAMBIAR NADA MÁS -->
   <span class="inline-flex w-fit items-center rounded-full px-3 py-1 text-xs font-semibold {{ status_classes }} mb-3">
-    {{ initiative.status_label or initiative.status }}
+    {{ initiative.status }}
   </span>
 
   <!-- TÍTULO (idéntico al original) -->

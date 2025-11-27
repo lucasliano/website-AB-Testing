@@ -13,7 +13,7 @@
             "(deseable) Conocimientos de aprendizaje automático (básico)."
         ],
         "responsable": [
-            "Dr. Ing. Rodriguez Colmeiro, Ramiro"
+            "Dr. Ing. Ramiro Rodriguez Colmeiro"
         ],
         "contact_email": [
             "rrodriguezcolmeiro@frba.utn.edu.ar"
@@ -22,10 +22,8 @@
             "Computer Vision",
             "Inteligencia Artificial"
         ],
-        "status": "idea",
-        "status_label": "Idea en desarrollo",
-        "status_type": "idea",
-        "looking_for": "1"
+        "status": "Proyecto en Curso",
+        "looking_for": "3"
     },
 
     {
@@ -42,8 +40,8 @@
             "(deseable) Conocimientos de PyTorch/vLLM."
         ],
         "responsable": [
-            "Dr. Ing. Rodriguez Colmeiro, Ramiro",
-            "Prof. Toranzo Calderón, Joaquín"
+            "Dr. Ing. Ramiro Rodriguez Colmeiro",
+            "Prof. Joaquín Toranzo Calderón"
         ],
         "contact_email": [
             "rrodriguezcolmeiro@frba.utn.edu.ar",
@@ -53,10 +51,8 @@
             "Natural Language",
             "Inteligencia Artificial"
         ],
-        "status": "idea",
-        "status_label": "Idea en desarrollo",
-        "status_type": "idea",
-        "looking_for": "1"
+        "status": "Nuevo Proyecto",
+        "looking_for": "3"
     },
 
     {
@@ -72,7 +68,7 @@
             "(deseable) Conocimiento de efectos térmicos en semiconductores."
         ],
         "responsable": [
-            "Liaño, Lucas"
+            "Lucas Liaño"
         ],
         "contact_email": [
             "lliano@frba.utn.edu.ar"
@@ -81,10 +77,8 @@
             "Sistemas Espaciales",
             "Electrónica de Potencia"
         ],
-        "status": "idea",
-        "status_label": "Idea en desarrollo",
-        "status_type": "idea",
-        "looking_for": "1"
+        "status": "Nueva Linea de Trabajo",
+        "looking_for": "4"
     },
 
     {
@@ -99,10 +93,10 @@
             "(deseable) Conocimiento en motores sin escobillas (DC Brushless)."
         ],
         "responsable": [
-            "Pablo Daniel Folino",
-            "Sergio Alberino",
-            "Juan Gabis Gomez",
-            "Javier Esarte"
+            "Ing. Pablo Daniel Folino",
+            "Ing. Sergio Alberino",
+            "Ing. Juan Gabis Gomez",
+            "Ing. Javier Esarte"
         ],
         "contact_email": [
             "pfolino@frba.utn.edu.ar",
@@ -115,10 +109,8 @@
             "Mecánica",
             "Aprendizaje por Refuerzo"
         ],
-        "status": "idea",
-        "status_label": "Idea en desarrollo",
-        "status_type": "idea",
-        "looking_for": "1"
+        "status": "Proyecto en Curso",
+        "looking_for": "4"
     },
 
     {
@@ -134,10 +126,10 @@
             "(deseable) Programación básica en Python."
         ],
         "responsable": [
-            "Pablo Daniel Folino",
-            "Sergio Alberino",
-            "Juan Gabis Gomez",
-            "Javier Esarte"
+            "Ing. Pablo Daniel Folino",
+            "Ing. Sergio Alberino",
+            "Ing. Juan Gabis Gomez",
+            "Ing. Javier Esarte"
         ],
         "contact_email": [
             "pfolino@frba.utn.edu.ar",
@@ -147,29 +139,27 @@
         ],
         "categories": [
             "Robótica",
-            "Electrónica",
-            "Control"
+            "Electrónica de Potencia",
+            "Sistemas de Control"
         ],
-        "status": "idea",
-        "status_label": "Idea en desarrollo",
-        "status_type": "idea",
-        "looking_for": "1"
+        "status": "Proyecto en Curso",
+        "looking_for": "4"
     },
 
     {
         "id": 6,
-        "title": "Procesamiento de Imágenes Médicas mediante Aprendizaje Profundo",
+        "title": "Módulo de reconstrucción 3D a partir de vistas y cortes de imágenes tomográficas",
         "short_description": "Investigar y desarrollar métodos de procesamiento de imágenes médicas (SPECT, PET, CT y MRI) mediante técnicas de aprendizaje profundo para reconstrucción 3D, segmentación semántica y mejora de calidad de datos.",
-        "full_description": "El proyecto propone investigar y desarrollar métodos de procesamiento de imágenes médicas, tanto de imágenes de tomografía computarizada por emisión de fotón único (SPECT) como para imágenes de tomografía por emisión de positrones (PET).\n\nLínea de Trabajo:\n1) Módulo de reconstrucción 3D a partir de vistas y cortes de imágenes tomográficas.\n2) Módulo de segmentación semántica utilizando foundation models en imágenes médicas.\n\nObjetivo General de la Línea de Trabajo:\n1) Aplicación de técnicas de reconstrucción 3D a partir de vistas como pueden ser los cortes en diferentes modalidades de imágenes médicas (SPECT, PET, CT y MRI). Investigación, selección, evaluación e integración de algoritmos. Durante el desarrollo del proyecto se aplicarán técnicas de procesado de imágenes digitales y algoritmos de visión artificial basados en redes neuronales profundas, investigando y desarrollando diferentes metodologías de corrección. A su vez, se investigarán técnicas de mejora de calidad y precisión de los datos utilizados.\n\n2) Desarrollo de modelos de segmentación semántica y aprendizaje profundo para asociar regiones contextuales, permitiendo reconstrucciones temáticas y localización de entidades en imágenes médicas (SPECT, PET, CT y MRI). Se emplearán algoritmos de aprendizaje automático, los cuales permitirán optimizar la segmentación, la detección de correspondencias y mejorar la reconstrucción de superficies complejas, favoreciendo aplicaciones en el área del diagnóstico médico.\n",
+        "full_description": "Aplicación de técnicas de reconstrucción 3D a partir de vistas como pueden ser los cortes en diferentes modalidades de imágenes médicas (SPECT, PET, CT, y MRI), Investigación, selección, evaluación e integración de algoritmos.\n\nDurante el desarrollo del proyecto se aplicarán técnicas de procesado de imágenes digitales y algoritmos de visión artificial basados en redes neuronales profundas, investigando y desarrollando diferentes metodologías de corrección. A su vez, se investigarán técnicas de mejora de calidad y precisión de los datos utilizados.\n",
         "objetivos_especificos": "Programación de algoritmos, etiquetado y confección del set de datos, entrenamiento y evaluación de modelos con arquitecturas de aprendizaje automático. Publicar un trabajo en un congreso nacional.",
         "requisitos": [
-            "Obligatorio: Python.",
-            "Deseable: Aprendizaje Automático.",
-            "Deseable: Visión por computadora.",
-            "Deseable: Entrenamiento de modelos con Keras, TensorFlow o PyTorch."
+            "Conocimientos de Python",
+            "(deseable) Aprendizaje Automático.",
+            "(deseable) Visión por computadora.",
+            "(deseable) Entrenamiento de modelos con Keras, TensorFlow o PyTorch."
         ],
         "responsable": [
-            "Mariana Andrea Prieto Canalejo"
+            "Ing. Mariana Andrea Prieto Canalejo"
         ],
         "contact_email": [
             "mprietocanalejo@frba.utn.edu.ar"
@@ -177,12 +167,10 @@
         "categories": [
             "Computer Vision",
             "Inteligencia Artificial",
-            "Sanidad"
+            "Salud"
         ],
-        "status": "idea",
-        "status_label": "Idea en desarrollo",
-        "status_type": "idea",
-        "looking_for": "1"
+        "status": "Nuevo Proyecto",
+        "looking_for": "4"
     },
 
     {
@@ -197,7 +185,7 @@
             "(deseable) Uso de software de simulación electromagnética por elementos finitos (preferentemente ANSYS HFSS)."
         ],
         "responsable": [
-            "Liaño, Lucas"
+            "Lucas Liaño"
         ],
         "contact_email": [
             "lliano@frba.utn.edu.ar"
@@ -207,9 +195,7 @@
             "RF",
             "Telecomunicaciones"
         ],
-        "status": "idea",
-        "status_label": "Idea en desarrollo",
-        "status_type": "idea",
+        "status": "Nueva Linea de Trabajo",
         "looking_for": "1"
     },
 
@@ -227,7 +213,7 @@
             "(deseable) Uso de software de simulación electromagnética por elementos finitos (preferentemente ANSYS HFSS)."
         ],
         "responsable": [
-            "Liaño, Lucas"
+            "Lucas Liaño"
         ],
         "contact_email": [
             "lliano@frba.utn.edu.ar"
@@ -237,9 +223,7 @@
             "Procesamiento de Señales",
             "Telecomunicaciones"
         ],
-        "status": "idea",
-        "status_label": "Idea en desarrollo",
-        "status_type": "idea",
+        "status": "Proyecto en Curso",
         "looking_for": "1"
     },
 
@@ -256,7 +240,7 @@
             "(deseable) Conocimientos de Python."
         ],
         "responsable": [
-            "Liaño, Lucas"
+            "Lucas Liaño"
         ],
         "contact_email": [
             "lliano@frba.utn.edu.ar"
@@ -266,9 +250,86 @@
             "Electrónica",
             "Firmware"
         ],
-        "status": "idea",
-        "status_label": "Idea en desarrollo",
-        "status_type": "idea",
+        "status": "Proyecto en Curso",
         "looking_for": "1"
+    },
+    {
+        "id": 10,
+        "title": "Módulo de segmentación semántica utilizando foundation models en imágenes médicas",
+        "short_description": "Investigar y desarrollar métodos de procesamiento de imágenes médicas (SPECT, PET, CT y MRI) mediante técnicas de aprendizaje profundo para reconstrucción 3D, segmentación semántica y mejora de calidad de datos.",
+        "full_description": "Desarrollo de modelos de segmentación semántica y aprendizaje profundo para asociar regiones contextuales, permitiendo reconstrucciones temáticas y localización de entidades en imágenes médicas (SPECT, PET, CT, y MRI).\n\nSe emplearán algoritmos de aprendizaje automático, los cuales permitirán optimizar la segmentación, la detección de correspondencias y mejorar la reconstrucción de superficies complejas, favoreciendo aplicaciones en el área del diagnóstico médico.\n",
+        "objetivos_especificos": "Programación de algoritmos, etiquetado y confección del set de datos, entrenamiento y evaluación de modelos con arquitecturas de aprendizaje automático. Publicar un trabajo en un congreso nacional.",
+        "requisitos": [
+            "Conocimientos de Python",
+            "(deseable) Aprendizaje Automático.",
+            "(deseable) Visión por computadora.",
+            "(deseable) Entrenamiento de modelos con Keras, TensorFlow o PyTorch."
+        ],
+        "responsable": [
+            "Ing. Mariana Andrea Prieto Canalejo"
+        ],
+        "contact_email": [
+            "mprietocanalejo@frba.utn.edu.ar"
+        ],
+        "categories": [
+            "Computer Vision",
+            "Inteligencia Artificial",
+            "Salud"
+        ],
+        "status": "Nuevo Proyecto",
+        "looking_for": "4"
+    },
+    {
+        "id": 11,
+        "title": "Módulo de segmentación semántica utilizando foundation models con imágenes ópticas",
+        "short_description": "La reconstrucción 3D es el proceso de obtener una representación tridimensional de un objeto, escena o entorno a partir de datos bidimensionales, como imágenes, vídeos o nubes de puntos. En este Proyecto de Investigación y Desarrollo (PID) se propone desarrollar un sistema de reconstrucción 3D basado en la correspondencia entre imágenes, aprovechando las relaciones geométricas presentes en ellas.",
+        "full_description": "Desarrollo de modelos de segmentación semántica y aprendizaje profundo para asociar regiones contextuales, permitiendo reconstrucciones temáticas y localización de entidades en imágenes ópticas. \n\nSe emplearán algoritmos de aprendizaje automático, los cuales permitirán optimizar la segmentación, la detección de correspondencias y mejorar la reconstrucción de superficies complejas, favoreciendo aplicaciones en áreas como diagnóstico médico, robótica móvil, vehículos autónomos, mapeo con drones, digitalización de patrimonio arqueológico y cultural así como la inspección automatizada en ambientes industriales.\n",
+        "objetivos_especificos": "Programación de algoritmos, etiquetado y confección del set de datos, entrenamiento y evaluación de modelos con arquitecturas de aprendizaje automático. Publicar un trabajo en un congreso nacional.",
+        "requisitos": [
+            "Conocimientos de Python",
+            "(deseable) Aprendizaje Automático.",
+            "(deseable) Visión por computadora.",
+            "(deseable) Entrenamiento de modelos con Keras, TensorFlow o PyTorch."
+        ],
+        "responsable": [
+            "Ing. Ramiro Verrastro"
+        ],
+        "contact_email": [
+            "ramiroverrastro@frba.utn.edu.ar"
+        ],
+        "categories": [
+            "Computer Vision",
+            "Inteligencia Artificial",
+            "Robótica"
+        ],
+        "status": "Nuevo Proyecto",
+        "looking_for": "6"
+    },
+
+    {
+        "id": 12,
+        "title": "Módulo de reconstrucción 3D a partir de imágenes ópticas con puntos de vista ampliamente separados",
+        "short_description": "La reconstrucción 3D es el proceso de obtener una representación tridimensional de un objeto, escena o entorno a partir de datos bidimensionales, como imágenes, vídeos o nubes de puntos. En este Proyecto de Investigación y Desarrollo (PID) se propone desarrollar un sistema de reconstrucción 3D basado en la correspondencia entre imágenes, aprovechando las relaciones geométricas presentes en ellas.",
+        "full_description": "Aplicación de técnicas de reconstrucción 3D a partir de múltiples vistas ampliamente separadas de imágenes ópticas. Investigación, selección, evaluación e integración de algoritmos.\nDurante el desarrollo del proyecto se aplicarán técnicas de fotogrametría, de procesamiento de imágenes digitales y algoritmos de visión artificial basados en redes neuronales profundas, aplicando, investigando y desarrollando diferentes metodologías de corrección de imágenes ópticas y de obtención de las matrices intrinsecas y extrinsecas que definen la transformación.\n",
+        "objetivos_especificos": "Programación de algoritmos, etiquetado y confección del set de datos, entrenamiento y evaluación de modelos con arquitecturas de aprendizaje automático. Publicar un trabajo en un congreso nacional.",
+        "requisitos": [
+            "Conocimientos de Python",
+            "(deseable) Aprendizaje Automático.",
+            "(deseable) Visión por computadora.",
+            "(deseable) Entrenamiento de modelos con Keras, TensorFlow o PyTorch."
+        ],
+        "responsable": [
+            "Ing. Ramiro Verrastro"
+        ],
+        "contact_email": [
+            "ramiroverrastro@frba.utn.edu.ar"
+        ],
+        "categories": [
+            "Computer Vision",
+            "Inteligencia Artificial",
+            "Robótica"
+        ],
+        "status": "Nuevo Proyecto",
+        "looking_for": "6"
     }
 ]

@@ -90,21 +90,15 @@ function initFiltering() {
 
   function applyFilters() {
     const term = normalize(searchInput ? searchInput.value : "");
-    const category = categorySelect ? categorySelect.value : "";
     const status = statusSelect ? statusSelect.value : "";
 
     cards.forEach((card) => {
       const title = normalize(card.getAttribute("data-initiative-title"));
-      const cardCategory = card.getAttribute("data-initiative-category") || "";
       const cardStatus = card.getAttribute("data-initiative-status") || "";
 
       let matches = true;
 
       if (term && !title.includes(term)) {
-        matches = false;
-      }
-
-      if (category && cardCategory !== category) {
         matches = false;
       }
 
@@ -122,9 +116,6 @@ function initFiltering() {
 
   if (searchInput) {
     searchInput.addEventListener("input", applyFilters);
-  }
-  if (categorySelect) {
-    categorySelect.addEventListener("change", applyFilters);
   }
   if (statusSelect) {
     statusSelect.addEventListener("change", applyFilters);
