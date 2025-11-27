@@ -54,6 +54,32 @@
         "status": "Nuevo Proyecto",
         "looking_for": "3"
     },
+    {
+        "id": 12,
+        "title": "Módulo de reconstrucción 3D a partir de imágenes ópticas con puntos de vista ampliamente separados",
+        "short_description": "La reconstrucción 3D es el proceso de obtener una representación tridimensional de un objeto, escena o entorno a partir de datos bidimensionales, como imágenes, vídeos o nubes de puntos. En este Proyecto de Investigación y Desarrollo (PID) se propone desarrollar un sistema de reconstrucción 3D basado en la correspondencia entre imágenes, aprovechando las relaciones geométricas presentes en ellas.",
+        "full_description": "Aplicación de técnicas de reconstrucción 3D a partir de múltiples vistas ampliamente separadas de imágenes ópticas. Investigación, selección, evaluación e integración de algoritmos.\nDurante el desarrollo del proyecto se aplicarán técnicas de fotogrametría, de procesamiento de imágenes digitales y algoritmos de visión artificial basados en redes neuronales profundas, aplicando, investigando y desarrollando diferentes metodologías de corrección de imágenes ópticas y de obtención de las matrices intrinsecas y extrinsecas que definen la transformación.\n",
+        "objetivos_especificos": "Programación de algoritmos, etiquetado y confección del set de datos, entrenamiento y evaluación de modelos con arquitecturas de aprendizaje automático. Publicar un trabajo en un congreso nacional.",
+        "requisitos": [
+            "Conocimientos de Python",
+            "(deseable) Aprendizaje Automático.",
+            "(deseable) Visión por computadora.",
+            "(deseable) Entrenamiento de modelos con Keras, TensorFlow o PyTorch."
+        ],
+        "responsable": [
+            "Ing. Ramiro Verrastro"
+        ],
+        "contact_email": [
+            "ramiroverrastro@frba.utn.edu.ar"
+        ],
+        "categories": [
+            "Computer Vision",
+            "Inteligencia Artificial",
+            "Robótica"
+        ],
+        "status": "Nuevo Proyecto",
+        "looking_for": "6"
+    },
 
     {
         "id": 3,
@@ -284,33 +310,6 @@
         "title": "Módulo de segmentación semántica utilizando foundation models con imágenes ópticas",
         "short_description": "La reconstrucción 3D es el proceso de obtener una representación tridimensional de un objeto, escena o entorno a partir de datos bidimensionales, como imágenes, vídeos o nubes de puntos. En este Proyecto de Investigación y Desarrollo (PID) se propone desarrollar un sistema de reconstrucción 3D basado en la correspondencia entre imágenes, aprovechando las relaciones geométricas presentes en ellas.",
         "full_description": "Desarrollo de modelos de segmentación semántica y aprendizaje profundo para asociar regiones contextuales, permitiendo reconstrucciones temáticas y localización de entidades en imágenes ópticas. \n\nSe emplearán algoritmos de aprendizaje automático, los cuales permitirán optimizar la segmentación, la detección de correspondencias y mejorar la reconstrucción de superficies complejas, favoreciendo aplicaciones en áreas como diagnóstico médico, robótica móvil, vehículos autónomos, mapeo con drones, digitalización de patrimonio arqueológico y cultural así como la inspección automatizada en ambientes industriales.\n",
-        "objetivos_especificos": "Programación de algoritmos, etiquetado y confección del set de datos, entrenamiento y evaluación de modelos con arquitecturas de aprendizaje automático. Publicar un trabajo en un congreso nacional.",
-        "requisitos": [
-            "Conocimientos de Python",
-            "(deseable) Aprendizaje Automático.",
-            "(deseable) Visión por computadora.",
-            "(deseable) Entrenamiento de modelos con Keras, TensorFlow o PyTorch."
-        ],
-        "responsable": [
-            "Ing. Ramiro Verrastro"
-        ],
-        "contact_email": [
-            "ramiroverrastro@frba.utn.edu.ar"
-        ],
-        "categories": [
-            "Computer Vision",
-            "Inteligencia Artificial",
-            "Robótica"
-        ],
-        "status": "Nuevo Proyecto",
-        "looking_for": "6"
-    },
-
-    {
-        "id": 12,
-        "title": "Módulo de reconstrucción 3D a partir de imágenes ópticas con puntos de vista ampliamente separados",
-        "short_description": "La reconstrucción 3D es el proceso de obtener una representación tridimensional de un objeto, escena o entorno a partir de datos bidimensionales, como imágenes, vídeos o nubes de puntos. En este Proyecto de Investigación y Desarrollo (PID) se propone desarrollar un sistema de reconstrucción 3D basado en la correspondencia entre imágenes, aprovechando las relaciones geométricas presentes en ellas.",
-        "full_description": "Aplicación de técnicas de reconstrucción 3D a partir de múltiples vistas ampliamente separadas de imágenes ópticas. Investigación, selección, evaluación e integración de algoritmos.\nDurante el desarrollo del proyecto se aplicarán técnicas de fotogrametría, de procesamiento de imágenes digitales y algoritmos de visión artificial basados en redes neuronales profundas, aplicando, investigando y desarrollando diferentes metodologías de corrección de imágenes ópticas y de obtención de las matrices intrinsecas y extrinsecas que definen la transformación.\n",
         "objetivos_especificos": "Programación de algoritmos, etiquetado y confección del set de datos, entrenamiento y evaluación de modelos con arquitecturas de aprendizaje automático. Publicar un trabajo en un congreso nacional.",
         "requisitos": [
             "Conocimientos de Python",
