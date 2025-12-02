@@ -1,0 +1,103 @@
+{# templates/partials/footer.html #}
+<footer id="contacto" class="bg-[#0f2345] text-white">
+  <div class="mx-auto max-w-7xl px-6 py-16 lg:px-8">
+    <!-- Contact grid -->
+    <div class="grid gap-10 md:grid-cols-3">
+      <div class="space-y-2">
+        <h3 class="text-lg font-bold text-[#ffb899]">
+          Ventas
+        </h3>
+        <p class="text-sm text-slate-200">
+          Consultas comerciales y cotizaciones.
+        </p>
+        <a href="mailto:ventas@LaserMakers.com"
+           class="text-sm text-white underline-offset-4 hover:underline"
+           data-event-name="click_email-ventas_footer">
+          ventas@LaserMakers.com
+        </a>
+        <a href="tel:+541123456789"
+           class="block text-xl font-semibold text-white"
+           data-event-name="click_phone-ventas_footer">
+          +54 11 2345 6789
+        </a>
+      </div>
+
+      <div class="space-y-2">
+        <h3 class="text-lg font-bold text-[#ffb899]">
+          Soporte técnico
+        </h3>
+        <p class="text-sm text-slate-200">
+          Seguimiento de piezas, urgencias y ajustes de proceso.
+        </p>
+        <a href="mailto:soporte@LaserMakers.com"
+           class="text-sm text-white underline-offset-4 hover:underline"
+           data-event-name="click_email-soporte_footer">
+          soporte@LaserMakers.com
+        </a>
+        <a href="tel:+541198765432"
+           class="block text-xl font-semibold text-white"
+           data-event-name="click_phone-soporte_footer">
+          +54 11 9876 5432
+        </a>
+      </div>
+
+      <div class="space-y-2">
+        <h3 class="text-lg font-bold text-[#ffb899]">
+          Administración
+        </h3>
+        <p class="text-sm text-slate-200">
+          Facturación, contratos y documentación.
+        </p>
+        <a href="mailto:admin@LaserMakers.com"
+           class="text-sm text-white underline-offset-4 hover:underline"
+           data-event-name="click_email-admin_footer">
+          admin@LaserMakers.com
+        </a>
+        <a href="tel:+541112223344"
+           class="block text-xl font-semibold text-white"
+           data-event-name="click_phone-admin_footer">
+          +54 11 1222 3344
+        </a>
+      </div>
+    </div>
+
+    <div class="my-10 border-t border-white/10"></div>
+
+    <!-- Address block -->
+    <div class="flex flex-col items-center gap-3 text-center">
+      <div class="flex h-10 w-10 items-center justify-center rounded-full bg-[#ff5a30]/10 text-[#ff5a30]">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 21s-6-5.3-6-10.1A6 6 0 0 1 18 10.9C18 15.7 12 21 12 21Z" stroke-linejoin="round"/>
+          <circle cx="12" cy="10" r="2.8"/>
+        </svg>
+      </div>
+      <p class="emoji-pin text-base font-semibold text-white">
+        Parque Industrial Tecnológico, Nave 12
+      </p>
+      <p class="text-sm text-slate-200">
+        San Martín, Buenos Aires, Argentina
+      </p>
+      <p class="text-xs text-slate-400">
+        CP 1650 &mdash; Acceso por Ruta 8
+      </p>
+      <img src="{{ url_for('static', path='images/contact-qr.png') }}"
+           alt="QR con datos de contacto LaserMakers"
+           class="mt-4 h-20 w-20 rounded-lg bg-white/5 p-2">
+    </div>
+
+    <div class="mt-10 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-slate-400 sm:flex-row">
+      <p>&copy; {{ current_year or 2025 }} LaserMakers. Todos los derechos reservados.</p>
+      <div class="flex flex-wrap items-center gap-4">
+        <a href="#inicio"
+           class="hover:text-slate-200"
+           data-event-name="click_back-to-top_footer">
+          Volver arriba
+        </a>
+        <span class="hidden h-1 w-1 rounded-full bg-slate-500 sm:inline-block"></span>
+        <p class="emoji-spark">
+          Grabado láser con mentalidad de laboratorio.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>

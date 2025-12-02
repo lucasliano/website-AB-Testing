@@ -1,188 +1,92 @@
-// Vanilla JS to handle interaction of front-end components.
+// Basic, attribute-driven interactivity for the LaserMakers marketing site.
 
-document.addEventListener("DOMContentLoaded", () => {
-  initMobileNavToggle();
-  initModalSystem();
-  initFiltering();
-  initContactForm();
-});
+(function () {
+  'use strict';
 
-// Toggle mobile navigation panel using data-toggle="mobile-nav" and data-mobile-nav-panel
-function initMobileNavToggle() {
-  const toggle = document.querySelector("[data-toggle='mobile-nav']");
-  const panel = document.querySelector("[data-mobile-nav-panel]");
-  if (!toggle || !panel) return;
-
-  toggle.addEventListener("click", () => {
-    panel.classList.toggle("hidden");
-  });
-}
-
-// Popup form
-function initModalSystem() {
-  const openers = document.querySelectorAll("[data-modal-open]");
-  const modals = document.querySelectorAll("[data-modal]");
-
-  function findModal(id) {
-    return Array.from(modals).find((m) => m.getAttribute("data-modal") === id);
-  }
-
-  function openModal(id) {
-    const modal = findModal(id);
-    if (!modal) return;
-    modal.classList.remove("hidden");
-    modal.setAttribute("aria-hidden", "false");
-    document.body.classList.add("overflow-hidden");
-  }
-
-  function closeModal(modal) {
-    if (!modal) return;
-    modal.classList.add("hidden");
-    modal.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("overflow-hidden");
-  }
-
-  openers.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const id = btn.getAttribute("data-modal-open");
-      if (id) openModal(id);
-    });
+  document.addEventListener('DOMContentLoaded', function () {
+    setupNavToggle();
+    setupScrollButtons();
+    setupHeroSlider();
   });
 
-  modals.forEach((modal) => {
-    const closes = modal.querySelectorAll("[data-modal-close]");
-    const overlay = modal.querySelector("[data-modal-overlay]");
+  /**
+   * Toggle mobile navigation using data-toggle / data-toggle-target attributes.
+   */
+  function setupNavToggle() {
+    var toggles = document.querySelectorAll('[data-toggle]');
+    toggles.forEach(function (button) {
+      var targetKey = button.getAttribute('data-toggle');
+      if (!targetKey) return;
 
-    closes.forEach((btn) => {
-      btn.addEventListener("click", () => closeModal(modal));
-    });
+      var target = document.querySelector('[data-toggle-target="' + targetKey + '"]');
+      if (!target) return;
 
-    if (overlay) {
-      overlay.addEventListener("click", () => closeModal(modal));
-    }
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      const openModalEl = Array.from(modals).find((m) => !m.classList.contains("hidden"));
-      if (openModalEl) {
-        closeModal(openModalEl);
-      }
-    }
-  });
-}
-
-// Search engine
-function initFiltering() {
-  const searchInput = document.querySelector("[data-filter-search]");
-  const categorySelect = document.querySelector("[data-filter-category]");
-  const statusSelect = document.querySelector("[data-filter-status]");
-  const resetButtons = document.querySelectorAll("[data-filter-reset]");
-  const cards = document.querySelectorAll("[data-initiative-card]");
-
-  if (!cards.length) return;
-
-  function normalize(text) {
-    return (text || "").toString().toLowerCase().normalize("NFD").replace(/\p{Diacritic}/gu, "");
-  }
-
-  function applyFilters() {
-    const term = normalize(searchInput ? searchInput.value : "");
-    const status = statusSelect ? statusSelect.value : "";
-
-    cards.forEach((card) => {
-      const title = normalize(card.getAttribute("data-initiative-title"));
-      const cardStatus = card.getAttribute("data-initiative-status") || "";
-
-      let matches = true;
-
-      if (term && !title.includes(term)) {
-        matches = false;
-      }
-
-      if (status && cardStatus !== status) {
-        matches = false;
-      }
-
-      if (matches) {
-        card.classList.remove("hidden");
-      } else {
-        card.classList.add("hidden");
-      }
+      button.addEventListener('click', function () {
+        target.classList.toggle('hidden');
+      });
     });
   }
 
-  if (searchInput) {
-    searchInput.addEventListener("input", applyFilters);
-  }
-  if (statusSelect) {
-    statusSelect.addEventListener("change", applyFilters);
-  }
-  resetButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      if (searchInput) searchInput.value = "";
-      if (categorySelect) categorySelect.value = "";
-      if (statusSelect) statusSelect.value = "";
-      applyFilters();
+  /**
+   * Smooth scrolling for elements that declare a data-scroll-target selector.
+   */
+  function setupScrollButtons() {
+    var buttons = document.querySelectorAll('[data-scroll-target]');
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function (event) {
+        var selector = btn.getAttribute('data-scroll-target');
+        if (!selector) return;
+        var target = document.querySelector(selector);
+        if (!target) return;
+
+        event.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
     });
-  });
-}
+  }
 
-// Contact form
-function initContactForm() {
-  // El modal del formulario está marcado con data-modal="contact-form"
-  const modal = document.querySelector('[data-modal="contact-form"]');
-  if (!modal) return;
+  /**
+   * Simple hero slider controlled via dots.
+   * - Slides: elements with [data-hero-slide]
+   * - Dots: elements with [data-hero-dot] and data-hero-index
+   */
+  function setupHeroSlider() {
+    var dots = document.querySelectorAll('[data-hero-dot]');
+    var slides = document.querySelectorAll('[data-hero-slide]');
+    if (!dots.length || !slides.length) return;
 
-  const form = modal.querySelector("form");
-  if (!form) return;
-
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault(); // evitamos submit clásico (recarga de página)
-
-    const submitButton = form.querySelector("button[type='submit']");
-    if (submitButton) {
-      submitButton.disabled = true;
-    }
-
-    try {
-      // Usamos FormData para incluir también el archivo
-      const formData = new FormData(form);
-
-      // Por si en el HTML dejaste el campo iniciativa como disabled,
-      // nos aseguramos de incluirlo igualmente:
-      const iniciativaInput = modal.querySelector("#contact-iniciativa");
-      if (iniciativaInput) {
-        formData.set("iniciativa", iniciativaInput.value || "");
-      }
-
-      const response = await fetch("/api/contact-upload", {
-        method: "POST",
-        body: formData,
+    function activateSlide(index) {
+      slides.forEach(function (slide, i) {
+        if (String(i) === String(index)) {
+          slide.classList.remove('hidden', 'opacity-0');
+          slide.classList.add('opacity-100');
+        } else {
+          slide.classList.add('hidden', 'opacity-0');
+          slide.classList.remove('opacity-100');
+        }
       });
 
-      if (!response.ok) {
-        throw new Error("Error al enviar el formulario");
-      }
-
-      // Si querés leer la respuesta JSON:
-      // const data = await response.json();
-
-      // Feedback mínimo:
-      form.reset();
-      alert("¡Gracias! Hemos recibido tu envío.");
-
-      // Si tenés lógica para cerrar el modal, la podés invocar acá.
-      // Por ejemplo, si en initModalSystem tenés algo tipo closeModal(modal):
-      // closeModal(modal);
-
-    } catch (err) {
-      console.error(err);
-      alert("Hubo un problema al enviar el formulario. Intentá de nuevo.");
-    } finally {
-      if (submitButton) {
-        submitButton.disabled = false;
-      }
+      dots.forEach(function (dot, i) {
+        if (String(i) === String(index)) {
+          dot.classList.remove('bg-slate-300');
+          dot.classList.add('bg-[#ff5a30]', 'scale-110');
+        } else {
+          dot.classList.remove('bg-[#ff5a30]', 'scale-110');
+          dot.classList.add('bg-slate-300');
+        }
+      });
     }
-  });
-}
+
+    // Bind click handlers
+    dots.forEach(function (dot) {
+      dot.addEventListener('click', function () {
+        var index = dot.getAttribute('data-hero-index');
+        if (index == null) return;
+        activateSlide(index);
+      });
+    });
+
+    // Ensure an initial state
+    activateSlide(0);
+  }
+})();

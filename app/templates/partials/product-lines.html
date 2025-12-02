@@ -1,0 +1,52 @@
+{# templates/partials/product-lines.html #}
+<section id="servicios" class="bg-white">
+  <div class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+    <div class="grid items-center gap-12 lg:grid-cols-2">
+      <!-- Text -->
+      <div class="max-w-md space-y-5">
+        <span class="text-sm font-semibold uppercase tracking-[0.18em] text-[#ff5a30]">
+          Líneas de servicio
+        </span>
+        <h2 class="text-2xl font-extrabold leading-snug text-[#0f2345] sm:text-3xl">
+          Grabado láser sobre metal, plástico y componentes electrónicos.
+        </h2>
+        <p class="text-[15px] leading-relaxed text-slate-700">
+          Desde carcasas mecanizadas hasta placas PCB y piezas moldeadas por inyección, adaptamos la potencia,
+          óptica y parámetros de proceso para asegurar lecturas perfectas, incluso en entornos exigentes.
+        </p>
+        <ul class="space-y-2 text-[15px] leading-relaxed text-slate-700">
+          <li class="flex gap-2">
+            <span class="mt-1 h-1.5 w-1.5 rounded-full bg-[#27a9ff]"></span>
+            <span>Marcado de códigos QR, Data Matrix y seriales únicos para trazabilidad.</span>
+          </li>
+          <li class="flex gap-2">
+            <span class="mt-1 h-1.5 w-1.5 rounded-full bg-[#27a9ff]"></span>
+            <span>Grabado de logotipos, pictogramas de seguridad y tipografías técnicas.</span>
+          </li>
+          <li class="flex gap-2">
+            <span class="mt-1 h-1.5 w-1.5 rounded-full bg-[#27a9ff]"></span>
+            <span>Marcación en bajo relieve, recocido o ablación según material y necesidad.</span>
+          </li>
+        </ul>
+
+        <div class="pt-4">
+          <a href="#contacto"
+             class="inline-flex items-center justify-center rounded-full bg-[#27a9ff] px-6 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-[#1590e2] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#27a9ff] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+             data-event-name="click_secondary-cta_servicios">
+            Ver capacidades técnicas
+          </a>
+        </div>
+      </div>
+
+      <!-- Image -->
+      <div class="relative">
+        <div class="relative overflow-hidden rounded-[3rem] bg-[#ff5a30] p-6 shadow-2xl sm:p-10">
+          <div class="pointer-events-none absolute inset-6 rounded-[2.5rem] border border-white/20"></div>
+          <img src="{{ url_for('static', path='images/lines-machine.png') }}"
+               alt="Equipos de grabado láser trabajando en línea de producción"
+               class="relative z-10 mx-auto w-full max-w-md object-contain drop-shadow-2xl">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

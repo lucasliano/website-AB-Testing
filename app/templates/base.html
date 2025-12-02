@@ -1,21 +1,41 @@
-{# templates/base.html #}
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8">
-    <title>{% block title %}Iniciativas{% endblock %}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{ url_for('static', path='css/main.css') }}">
-    {% block extra_head %}{% endblock %}
-  </head>
-  <body class="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-black text-slate-100 antialiased">
-    {% include jinja_load_variant_template("partials/navbar.html", current_variant) %}
-    <main class="min-h-[calc(100vh-4rem)] pb-16">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Grabado Láser Industrial{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', path='css/main.css') }}">
+  {# Custom CSS only for emoji pseudo-elements; main styling uses Tailwind utilities #}
+  <style>
+    .emoji-pin::before {
+      content: "📍";
+      margin-right: 0.35rem;
+    }
+    .emoji-spark::before {
+      content: "✨";
+      margin-right: 0.35rem;
+    }
+  </style>
+  {% block head_extra %}{% endblock %}
+</head>
+<body class="min-h-screen bg-[#f7f8fb] text-slate-900 antialiased font-sans">
+  <div class="flex min-h-screen flex-col">
+    <header class="shrink-0">
+      {% include jinja_load_variant_template("partials/header.html", current_variant) %}
+    </header>
+
+    <main class="flex-1">
       {% block content %}{% endblock %}
     </main>
-    <script>window.APP_VARIANT = "{{ current_variant }}";</script>
-    <script src="{{ url_for('static', path='js/tracking.js') }}"></script>
-    <script src="{{ url_for('static', path='js/front-end.js') }}"></script>
-    {% block extra_scripts %}{% endblock %}
-  </body>
+
+    <footer class="shrink-0">
+      {% include jinja_load_variant_template("partials/footer.html", current_variant) %}
+    </footer>
+  </div>
+
+  <script>window.APP_VARIANT = "{{current_variant}}";</script>
+  <script src="{{ url_for('static', path='js/tracking.js') }}"></script>
+  <script src="{{ url_for('static', path='js/front-end.js') }}"></script>
+  {% block body_extra %}{% endblock %}
+</body>
 </html>

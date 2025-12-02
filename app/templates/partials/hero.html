@@ -1,0 +1,112 @@
+{# templates/partials/hero.html #}
+<section id="inicio" class="relative overflow-hidden bg-[#f6f8fb]">
+  <!-- Left decorative lines -->
+  <div class="pointer-events-none absolute inset-y-0 -left-24 hidden w-1/2 opacity-30 lg:block">
+    <div class="h-full w-full">
+      <div class="absolute left-10 top-8 h-64 w-64 rounded-[3rem] border border-slate-200"></div>
+      <div class="absolute left-16 top-16 h-64 w-64 rounded-[3rem] border border-slate-200"></div>
+      <div class="absolute left-24 top-24 h-64 w-64 rounded-[3rem] border border-slate-100"></div>
+    </div>
+  </div>
+
+  <!-- Right navy block -->
+  <div class="pointer-events-none absolute inset-y-0 right-0 w-[50%] rounded-l-[4rem] bg-[#0f2345]"></div>
+
+  <div class="relative mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-28">
+    <div class="grid items-center gap-12 lg:grid-cols-2">
+      <!-- Text column -->
+      <div class="relative z-10 max-w-xl space-y-6">
+        <span class="emoji-spark inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.15em] text-slate-500">
+          HSG Laser Service
+        </span>
+        <h1 class="text-4xl font-extrabold leading-tight text-[#0f2345] sm:text-5xl lg:text-6xl">
+          Grabado láser profesional para industria exigente
+        </h1>
+        <p class="text-base font-medium text-sky-500 sm:text-lg">
+          De la primera muestra al lote de producción, convertimos tus piezas en mensajes nítidos y permanentes.
+        </p>
+        <p class="text-[15px] leading-relaxed text-slate-700">
+          Marcado de códigos, logotipos y textos de alta resolución sobre metales y plásticos técnicos, con trazabilidad
+          garantizada y tiempos de respuesta pensados para líneas de producción reales.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-4 pt-2">
+          <a href="#servicios"
+             class="inline-flex items-center justify-center rounded-full bg-[#ff5a30] px-8 py-3 text-sm font-semibold tracking-wide text-white shadow-md transition hover:bg-[#e65029] hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5a30] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f6f8fb]"
+             data-event-name="click_primary-cta_hero">
+            Conocé más
+          </a>
+          <button type="button"
+                  class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-2 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-[#27a9ff] hover:text-[#27a9ff] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#27a9ff] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f6f8fb]"
+                  data-event-name="click_secondary-cta_hero"
+                  data-scroll-target="#contacto">
+            Hablá con un especialista
+          </button>
+        </div>
+
+        <dl class="mt-6 grid gap-4 text-sm text-slate-600 sm:grid-cols-3">
+          <div>
+            <dt class="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-500">Capacidad</dt>
+            <dd class="mt-1 text-sm font-semibold text-slate-900">24/7 en producción</dd>
+          </div>
+          <div>
+            <dt class="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-500">Materiales</dt>
+            <dd class="mt-1 text-sm font-semibold text-slate-900">Acero, aluminio, polímeros</dd>
+          </div>
+          <div>
+            <dt class="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-500">Formato</dt>
+            <dd class="mt-1 text-sm font-semibold text-slate-900">Piezas unitarias o series</dd>
+          </div>
+        </dl>
+      </div>
+
+      <!-- Image / slider column -->
+      <div class="relative z-10 flex justify-center lg:justify-end">
+        <div class="relative w-full max-w-md">
+          <div class="relative overflow-hidden rounded-[3rem] bg-[#0f2345] px-6 pt-10 pb-8 shadow-2xl sm:px-8 sm:pt-12">
+            <!-- Slides -->
+            <div class="relative aspect-[4/3]">
+              <img src="{{ url_for('static', path='images/termo.png') }}"
+                   alt="Equipo de grabado láser de fibra para producción continua"
+                   class="absolute inset-0 h-full w-full object-contain drop-shadow-2xl transition-opacity duration-300"
+                   data-hero-slide="0">
+              <img src="{{ url_for('static', path='images/mate.jpg') }}"
+                   alt="Sistema de marcación láser CO₂ para plásticos técnicos"
+                   class="absolute inset-0 h-full w-full object-contain drop-shadow-2xl opacity-0 transition-opacity duration-300 hidden"
+                   data-hero-slide="1">
+              <img src="{{ url_for('static', path='images/anillo.jpg') }}"
+                   alt="Celda de grabado láser para microcomponentes"
+                   class="absolute inset-0 h-full w-full object-contain drop-shadow-2xl opacity-0 transition-opacity duration-300 hidden"
+                   data-hero-slide="2">
+            </div>
+
+            <!-- Slider dots -->
+            <div class="mt-6 flex justify-center gap-2" data-hero-dots>
+              <button type="button"
+                      class="h-2.5 w-2.5 rounded-full bg-[#ff5a30] transition-transform"
+                      aria-label="Equipo de fibra"
+                      data-hero-dot
+                      data-hero-index="0"
+                      data-event-name="click_hero-dot-fibra_hero">
+              </button>
+              <button type="button"
+                      class="h-2.5 w-2.5 rounded-full bg-slate-300 transition-transform"
+                      aria-label="Equipo CO₂"
+                      data-hero-dot
+                      data-hero-index="1"
+                      data-event-name="click_hero-dot-co2_hero">
+              </button>
+              <button type="button"
+                      class="h-2.5 w-2.5 rounded-full bg-slate-300 transition-transform"
+                      aria-label="Celda de micrograbado"
+                      data-hero-dot
+                      data-hero-index="2"
+                      data-event-name="click_hero-dot-micro_hero">
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
