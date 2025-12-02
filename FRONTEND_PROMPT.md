@@ -77,6 +77,12 @@ INFRASTRUCTURE CONSTRAINTS (VERY IMPORTANT):
   - When including a partial, ALWAYS use:
     {% include jinja_load_variant_template("partials/<name>.html", current_variant) %}
 - Do NOT inline large repeated sections; factor them into partials when they are conceptually reusable.
+- Create a pages.py file that uses fastAPI to route the templates created.
+- Example:
+  @router.get("/", name="home")
+  def home(request: Request):
+      ctx = common_context(request, title="Home Page")
+      return render_variant_template(request, "home.html", ctx)
 
 7) RESPOSIVE DESIGN
 - Everything should work fine on both desktop and mobile devices.
